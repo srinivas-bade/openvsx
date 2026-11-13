@@ -219,9 +219,10 @@ services:
       - valkey-admin
 
   server:
-    image: eclipse-temurin:25-jdk
+    image: amazoncorretto:25
     working_dir: /app
-    command: sh -c 'scripts/generate-properties.sh --docker && ./gradlew assemble && ./gradlew runServer'
+    # findutils provides xargs, which gradlew requires and the Amazon Linux base image does not ship.
+    command: sh -c 'yum install -y findutils && yum clean all && scripts/generate-properties.sh --docker && ./gradlew assemble && ./gradlew runServer'
     volumes:
       - ./server:/app
     ports:
@@ -242,10 +243,10 @@ services:
         condition: service_healthy
         required: false
     healthcheck:
-      # eclipse-temurin ships no curl, wget or nc, so the previous curl-based check could only ever
-      # exit 127. bash is present, and its /dev/tcp is enough to ask the actuator the same question.
-      # bash explicitly, not CMD-SHELL: that runs /bin/sh, which on this image is dash, and dash has
-      # no /dev/tcp - it fails with "cannot create /dev/tcp/...: Directory nonexistent".
+      # The JDK base image does not reliably ship curl, wget or nc, so a curl-based check could exit
+      # 127. bash is present, and its /dev/tcp is enough to ask the actuator the same question.
+      # bash explicitly, not CMD-SHELL: that runs /bin/sh, which is not guaranteed to be bash (e.g. dash
+      # has no /dev/tcp - it fails with "cannot create /dev/tcp/...: Directory nonexistent").
       # Single-quoted so the \r\n reach bash as escapes for printf, rather than being turned into
       # real control characters by YAML on the way.
       test:

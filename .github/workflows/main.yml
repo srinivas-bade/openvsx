@@ -133,7 +133,7 @@ jobs:
       if: steps.changed_server_files.outputs.any_changed == 'true'
       uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
       with:
-        distribution: 'temurin'
+        distribution: 'corretto'
         java-version: 25
 
     # Caches Gradle User Home (dependencies, build-output cache); avoid also using setup-java's own
@@ -261,7 +261,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
         with:
-          distribution: 'temurin'
+          distribution: 'corretto'
           java-version: 25
 
       - name: Set up JBang
