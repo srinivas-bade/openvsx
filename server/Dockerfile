@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM gradle:jdk-25-and-25 AS builder
+FROM gradle:jdk25-corretto AS builder
 
 # Copy sources
 WORKDIR /home/gradle
@@ -12,10 +12,13 @@ ENV CI=true
 # Build the server application
 RUN ./gradlew --no-daemon assemble
 
-FROM eclipse-temurin:25-jdk
+FROM amazoncorretto:25
 
 # Create user openvsx and set up home directory
-RUN groupadd -r openvsx \
+# (shadow-utils provides groupadd/useradd, which the Amazon Linux base image does not ship)
+RUN yum install -y shadow-utils \
+    && yum clean all \
+    && groupadd -r openvsx \
     && useradd --no-log-init -r -g openvsx openvsx \
     && mkdir -p /home/openvsx/server \
     && chown -R openvsx:openvsx /home/openvsx
