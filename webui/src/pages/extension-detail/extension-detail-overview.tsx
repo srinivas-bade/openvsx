@@ -65,7 +65,7 @@ export const ExtensionDetailOverview: FunctionComponent<ExtensionDetailOverviewP
 
         return (
             <>
-                <Grid item xs='auto'>
+                <Grid size='auto'>
                     <Stack spacing={0.5}>
                         {data.map(d => (
                             <Box
@@ -77,7 +77,7 @@ export const ExtensionDetailOverview: FunctionComponent<ExtensionDetailOverviewP
                         ))}
                     </Stack>
                 </Grid>
-                <Grid item xs>
+                <Grid size='grow'>
                     <Stack spacing={0.5}>
                         {data.map(d => (
                             <Box component='span' key={d.key}>
@@ -92,7 +92,7 @@ export const ExtensionDetailOverview: FunctionComponent<ExtensionDetailOverviewP
 
     const worksWithTargetPlatforms = useMemo(() => {
         return (
-            <Grid item xs={12}>
+            <Grid size={12}>
                 <Box component='span' sx={{ color: 'primary.dark', fontWeight: 'fontWeightBold' }}>
                     Target Platforms:
                 </Box>
@@ -128,7 +128,11 @@ export const ExtensionDetailOverview: FunctionComponent<ExtensionDetailOverviewP
             <>
                 <Typography variant='h6'>Version</Typography>
                 {allVersions.length === 1 ? (
-                    <Typography variant='body1' display='inline'>
+                    <Typography
+                        variant='body1'
+                        sx={{
+                            display: 'inline'
+                        }}>
                         {allVersions[0]}
                     </Typography>
                 ) : (
@@ -150,7 +154,11 @@ export const ExtensionDetailOverview: FunctionComponent<ExtensionDetailOverviewP
                     ''
                 )}
                 {extension.timestamp ? (
-                    <Box mt={1} mb={1}>
+                    <Box
+                        sx={{
+                            mt: 1,
+                            mb: 1
+                        }}>
                         Published <Timestamp value={extension.timestamp} />
                     </Box>
                 ) : null}
@@ -344,7 +352,12 @@ export const ExtensionDetailOverview: FunctionComponent<ExtensionDetailOverviewP
                     md: 'row'
                 }
             }}>
-            <Box flex={5} sx={{ minWidth: 0, overflow: 'auto' }}>
+            <Box
+                sx={{
+                    flex: 5,
+                    minWidth: 0,
+                    overflow: 'auto'
+                }}>
                 <SanitizedMarkdown content={readme} />
             </Box>
             <Box
@@ -375,7 +388,10 @@ export const ExtensionDetailOverview: FunctionComponent<ExtensionDetailOverviewP
                         <Box>{renderButtonList('category', 'Categories', extension.categories, tagButton)}</Box>
                     ) : null}
                     {tags && tags.length > 0 ? (
-                        <Box mt={extension.categories && extension.categories.length > 0 ? 2 : 0}>
+                        <Box
+                            sx={{
+                                mt: extension.categories && extension.categories.length > 0 ? 2 : 0
+                            }}>
                             {renderButtonList('search', 'Tags', tags, tagButton)}
                         </Box>
                     ) : null}
@@ -407,18 +423,27 @@ export const ExtensionDetailOverview: FunctionComponent<ExtensionDetailOverviewP
                         ) : null}
                     </Box>
                     {extension.bundledExtensions !== undefined && extension.bundledExtensions.length > 0 ? (
-                        <Box mt={2}>
+                        <Box
+                            sx={{
+                                mt: 2
+                            }}>
                             <Typography variant='h6'>Bundled Extensions</Typography>
                             {extension.bundledExtensions!.map(ref => renderExtensionRef(ref))}
                         </Box>
                     ) : null}
                     {extension.dependencies !== undefined && extension.dependencies.length > 0 ? (
-                        <Box mt={2}>
+                        <Box
+                            sx={{
+                                mt: 2
+                            }}>
                             <Typography variant='h6'>Dependencies</Typography>
                             {extension.dependencies!.map(ref => renderExtensionRef(ref))}
                         </Box>
                     ) : null}
-                    <Box mt={2}>
+                    <Box
+                        sx={{
+                            mt: 2
+                        }}>
                         {ClaimNamespace ? (
                             <ClaimNamespace namespace={extension.namespace} extension={extension} sx={resourceLink} />
                         ) : (

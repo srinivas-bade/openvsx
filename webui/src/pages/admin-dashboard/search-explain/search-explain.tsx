@@ -178,7 +178,11 @@ export const SearchExplainAdmin: FC = () => {
                 <Typography variant='h4' component='h1'>
                     Search Explain
                 </Typography>
-                <Typography variant='body2' color='text.secondary'>
+                <Typography
+                    variant='body2'
+                    sx={{
+                        color: 'text.secondary'
+                    }}>
                     Run a search and see what each result&apos;s score is made of. The score is the text match
                     multiplied by the stored relevance, so a result in the wrong place is either a query-weighting
                     problem or a relevance-formula one — this says which.

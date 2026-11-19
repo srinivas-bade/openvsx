@@ -69,7 +69,10 @@ export const UserSettings: FunctionComponent<UserSettingsProps> = props => {
             return loginProviders ? (
                 <PageContainer>
                     <Typography variant='h4'>Not Logged In</Typography>
-                    <Box mt={2}>
+                    <Box
+                        sx={{
+                            mt: 2
+                        }}>
                         <Typography variant='body1'>
                             Please{' '}
                             <LoginComponent

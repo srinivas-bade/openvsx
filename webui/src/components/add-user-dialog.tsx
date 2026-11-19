@@ -120,8 +120,17 @@ export const AddUserDialog: FC<AddUserDialogProps> = ({
                             sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
                             <Avatar variant='rounded' src={user.avatarUrl} sx={{ width: 36, height: 36 }} />
                             <Box>
-                                <Box fontWeight='bold'>{user.loginName}</Box>
-                                <Box fontSize='0.75rem' color='text.secondary'>
+                                <Box
+                                    sx={{
+                                        fontWeight: 'bold'
+                                    }}>
+                                    {user.loginName}
+                                </Box>
+                                <Box
+                                    sx={{
+                                        fontSize: '0.75rem',
+                                        color: 'text.secondary'
+                                    }}>
                                     {user.fullName}
                                 </Box>
                             </Box>

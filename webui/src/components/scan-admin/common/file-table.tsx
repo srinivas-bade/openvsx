@@ -416,7 +416,12 @@ export const FileTable: FunctionComponent<FileTableProps> = props => {
                     {files.length === 0 ? (
                         <TableRow>
                             <TableCell colSpan={8} align='center'>
-                                <Typography variant='body2' color='text.secondary' sx={{ py: 4 }}>
+                                <Typography
+                                    variant='body2'
+                                    sx={{
+                                        color: 'text.secondary',
+                                        py: 4
+                                    }}>
                                     No {type} files
                                 </Typography>
                             </TableCell>

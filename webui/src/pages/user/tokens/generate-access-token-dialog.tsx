@@ -60,7 +60,13 @@ export const GenerateAccessTokenDialog: FunctionComponent = () => {
                 }}
                 canGenerate={!namespaceInvalid && !extensionInvalid}
                 onGenerate={handleGenerate}>
-                <Box mt={2} display='flex' flexDirection='column' gap={2}>
+                <Box
+                    sx={{
+                        mt: 2,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: 2
+                    }}>
                     <Autocomplete
                         fullWidth
                         options={namespaces.map(ns => ns.name)}

@@ -83,10 +83,19 @@ export const BlockListTabContent: FunctionComponent = () => {
                 </Box>
             ) : files.length === 0 ? (
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 4 }}>
-                    <Typography variant='h6' color='text.secondary'>
+                    <Typography
+                        variant='h6'
+                        sx={{
+                            color: 'text.secondary'
+                        }}>
                         No blocked files
                     </Typography>
-                    <Typography variant='body2' color='text.secondary' sx={{ mt: 1 }}>
+                    <Typography
+                        variant='body2'
+                        sx={{
+                            color: 'text.secondary',
+                            mt: 1
+                        }}>
                         Files that have been blocked will appear here
                     </Typography>
                 </Box>

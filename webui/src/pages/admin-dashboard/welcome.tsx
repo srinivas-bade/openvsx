@@ -41,7 +41,11 @@ const NavCard: FunctionComponent<{ entry: RouteEntry }> = ({ entry }) => {
                         {entry.name}
                     </Typography>
                     {entry.description && (
-                        <Typography variant='body2' color='text.secondary'>
+                        <Typography
+                            variant='body2'
+                            sx={{
+                                color: 'text.secondary'
+                            }}>
                             {entry.description}
                         </Typography>
                     )}
@@ -60,11 +64,21 @@ export const Welcome: FunctionComponent<WelcomeProps> = ({ items }) => {
 
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Box sx={{ py: 4, px: 2 }} maxWidth='xl'>
+            <Box
+                sx={{
+                    maxWidth: 'xl',
+                    py: 4,
+                    px: 2
+                }}>
                 <Typography variant='h5' gutterBottom>
                     Welcome to the Admin Dashboard
                 </Typography>
-                <Typography variant='body1' color='text.secondary' sx={{ mb: 4 }}>
+                <Typography
+                    variant='body1'
+                    sx={{
+                        color: 'text.secondary',
+                        mb: 4
+                    }}>
                     Select a section below to get started
                 </Typography>
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
@@ -74,8 +88,11 @@ export const Welcome: FunctionComponent<WelcomeProps> = ({ items }) => {
                                 <>
                                     <Typography
                                         variant='overline'
-                                        color='text.secondary'
-                                        sx={{ mb: 1, display: 'block' }}>
+                                        sx={{
+                                            color: 'text.secondary',
+                                            mb: 1,
+                                            display: 'block'
+                                        }}>
                                         {section.groupName}
                                     </Typography>
                                     <Divider sx={{ mb: 2 }} />
@@ -84,7 +101,14 @@ export const Welcome: FunctionComponent<WelcomeProps> = ({ items }) => {
                             {!section.groupName && i > 0 && <Divider sx={{ mb: 2 }} />}
                             <Grid container spacing={3}>
                                 {section.entries.map(entry => (
-                                    <Grid item key={entry.path} xs={12} sm={6} md={4} lg={3}>
+                                    <Grid
+                                        key={entry.path}
+                                        size={{
+                                            xs: 12,
+                                            sm: 6,
+                                            md: 4,
+                                            lg: 3
+                                        }}>
                                         <NavCard entry={entry} />
                                     </Grid>
                                 ))}

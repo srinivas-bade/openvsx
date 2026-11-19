@@ -9,30 +9,28 @@
  ********************************************************************************/
 
 import { FunctionComponent, ReactNode } from 'react';
-import { Grid } from '@mui/material';
+import { Grid, Stack } from '@mui/material';
 import { DelayedLoadIndicator } from '../../components/delayed-load-indicator';
 
 export const SearchListContainer: FunctionComponent<SearchListContainerProps> = props => {
     return (
-        <Grid container direction='column' spacing={2} sx={{ flexWrap: 'nowrap', mb: 4 }}>
-            <Grid style={{ flex: 1 }} item container direction='column' spacing={1} justifyContent='flex-end'>
+        <Stack spacing={2} sx={{ mb: 4 }}>
+            <Stack style={{ flex: 1 }} spacing={1} sx={{ justifyContent: 'flex-end' }}>
                 {props.searchContainer.map((searchField, key) => {
                     return (
-                        <Grid key={key} container item justifyContent='center'>
-                            <Grid item xs={8}>
-                                {searchField}
-                            </Grid>
+                        <Grid key={key} container sx={{ justifyContent: 'center' }}>
+                            <Grid size={8}>{searchField}</Grid>
                         </Grid>
                     );
                 })}
-            </Grid>
-            <Grid style={{ flex: 4, overflow: 'hidden' }} item container justifyContent='center'>
-                <Grid style={{ height: '100%' }} item xs={8}>
+            </Stack>
+            <Grid style={{ flex: 4, overflow: 'hidden' }} container sx={{ justifyContent: 'center' }}>
+                <Grid style={{ height: '100%' }} size={8}>
                     <DelayedLoadIndicator loading={props.loading} />
                     {props.listContainer}
                 </Grid>
             </Grid>
-        </Grid>
+        </Stack>
     );
 };
 

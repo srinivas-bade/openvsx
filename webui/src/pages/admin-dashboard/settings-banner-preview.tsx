@@ -47,7 +47,13 @@ export interface SettingsBannerPreviewProps {
 
 export const SettingsBannerPreview: FC<SettingsBannerPreviewProps> = ({ caption, message, severity, dimmed }) => (
     <Box>
-        <Typography variant='caption' component='p' color='text.secondary' gutterBottom>
+        <Typography
+            variant='caption'
+            component='p'
+            gutterBottom
+            sx={{
+                color: 'text.secondary'
+            }}>
             {caption}
         </Typography>
         <PreviewFrame dimmed={dimmed}>

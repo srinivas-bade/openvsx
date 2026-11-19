@@ -46,14 +46,22 @@ const compactFormat = Intl.NumberFormat(undefined, { notation: 'compact' });
 /** A headline figure, laid out so a row of them reads as one band. */
 const StatCard: FunctionComponent<{ label: string; value: string; hint?: string }> = ({ label, value, hint }) => (
     <Paper sx={{ p: 2, flex: '1 1 0', minWidth: 150 }}>
-        <Typography variant='body2' color='text.secondary'>
+        <Typography
+            variant='body2'
+            sx={{
+                color: 'text.secondary'
+            }}>
             {label}
         </Typography>
         <Typography variant='h5' sx={{ mt: 0.5 }}>
             {value}
         </Typography>
         {hint ? (
-            <Typography variant='caption' color='text.secondary'>
+            <Typography
+                variant='caption'
+                sx={{
+                    color: 'text.secondary'
+                }}>
                 {hint}
             </Typography>
         ) : null}
@@ -159,7 +167,13 @@ export const StatisticsAdmin: FunctionComponent = () => {
             </Typography>
 
             <Paper sx={{ p: 2, mb: 3 }}>
-                <Stack direction='row' spacing={1} alignItems='center' flexWrap='wrap'>
+                <Stack
+                    direction='row'
+                    spacing={1}
+                    sx={{
+                        alignItems: 'center',
+                        flexWrap: 'wrap'
+                    }}>
                     <IconButton
                         size='small'
                         aria-label='Previous month'
@@ -183,7 +197,13 @@ export const StatisticsAdmin: FunctionComponent = () => {
                     </Button>
                 </Stack>
                 {isCurrentMonth ? (
-                    <Typography variant='caption' color='text.secondary' sx={{ display: 'block', mt: 1 }}>
+                    <Typography
+                        variant='caption'
+                        sx={{
+                            color: 'text.secondary',
+                            display: 'block',
+                            mt: 1
+                        }}>
                         This month is still in progress and is calculated on request. Completed months are archived on
                         the first of the following month.
                     </Typography>
@@ -226,7 +246,14 @@ const NoStatistics: FunctionComponent<{ month: string }> = ({ month }) => (
 
 const StatisticsContent: FunctionComponent<{ statistics: AdminStatistics }> = ({ statistics }) => {
     const cards: ReactNode = (
-        <Stack direction='row' spacing={2} flexWrap='wrap' useFlexGap sx={{ mb: 3 }}>
+        <Stack
+            direction='row'
+            spacing={2}
+            useFlexGap
+            sx={{
+                flexWrap: 'wrap',
+                mb: 3
+            }}>
             <StatCard label='Extensions' value={numberFormat.format(statistics.extensions)} />
             <StatCard label='Downloads' value={numberFormat.format(statistics.downloads)} hint='this month' />
             <StatCard label='Downloads' value={numberFormat.format(statistics.downloadsTotal)} hint='all time' />
@@ -243,7 +270,13 @@ const StatisticsContent: FunctionComponent<{ statistics: AdminStatistics }> = ({
     return (
         <>
             {cards}
-            <Stack direction='row' spacing={2} flexWrap='wrap' useFlexGap>
+            <Stack
+                direction='row'
+                spacing={2}
+                useFlexGap
+                sx={{
+                    flexWrap: 'wrap'
+                }}>
                 <BreakdownChart
                     title='Extensions by rating'
                     labels={(statistics.extensionsByRating ?? []).map(e => `${e.rating}★`)}

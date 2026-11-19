@@ -536,9 +536,18 @@ export const AdminDashboard: FunctionComponent<AdminDashboardProps> = props => {
         content = <Message message='You are not authorized as administrator.' />;
     } else if (!props.userLoading && loginProviders) {
         content = (
-            <Box display='flex' alignItems='center'>
+            <Box
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center'
+                }}>
                 <Message message='You are not logged in.' />
-                <Box height='fit-content' alignItems='center' display='flex'>
+                <Box
+                    sx={{
+                        height: 'fit-content',
+                        alignItems: 'center',
+                        display: 'flex'
+                    }}>
                     <LoginComponent
                         loginProviders={loginProviders}
                         renderButton={(href, onClick) => {
@@ -565,7 +574,12 @@ export const AdminDashboard: FunctionComponent<AdminDashboardProps> = props => {
     return (
         <>
             <CssBaseline />
-            <Box display='flex' height='100vh' justifyContent='center'>
+            <Box
+                sx={{
+                    display: 'flex',
+                    height: '100vh',
+                    justifyContent: 'center'
+                }}>
                 {content}
             </Box>
         </>

@@ -45,7 +45,11 @@ export const SearchIndexAdmin: FC = () => {
                     <Typography variant='h4' component='h1'>
                         Search Index
                     </Typography>
-                    <Typography variant='body2' color='text.secondary'>
+                    <Typography
+                        variant='body2'
+                        sx={{
+                            color: 'text.secondary'
+                        }}>
                         The state of the index that answers extension searches, and a full rebuild of it from the
                         database.
                     </Typography>
@@ -77,7 +81,12 @@ export const SearchIndexAdmin: FC = () => {
                     {canRebuild(data) && (
                         <Paper sx={{ p: 3 }}>
                             <Typography variant='subtitle1'>Rebuild the index</Typography>
-                            <Typography variant='body2' color='text.secondary' sx={{ mb: 2 }}>
+                            <Typography
+                                variant='body2'
+                                sx={{
+                                    color: 'text.secondary',
+                                    mb: 2
+                                }}>
                                 Deletes the index and builds it again from every active extension. Searching keeps
                                 working while it runs, but returns incomplete results until it finishes.
                             </Typography>
@@ -167,7 +176,11 @@ const SearchIndexStatistics: FC<{ index: SearchIndex }> = ({ index }) => (
 
 const Statistic: FC<{ label: string; value: string }> = ({ label, value }) => (
     <Box>
-        <Typography variant='body2' color='text.secondary'>
+        <Typography
+            variant='body2'
+            sx={{
+                color: 'text.secondary'
+            }}>
             {label}
         </Typography>
         <Typography variant='h5' component='p'>

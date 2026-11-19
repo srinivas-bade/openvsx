@@ -133,7 +133,10 @@ export const GenerateTokenDialog: FunctionComponent<GenerateTokenDialogProps> = 
                                 <DialogContentText>
                                     You can add an optional description to help identify where this token is used.
                                 </DialogContentText>
-                                <Box mt={2}>
+                                <Box
+                                    sx={{
+                                        mt: 2
+                                    }}>
                                     <TextField
                                         autoFocus
                                         fullWidth
