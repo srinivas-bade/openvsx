@@ -57,6 +57,8 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
+        with:
+          node-version: 26
       - run: npm ci
       - run: npx ovsx publish --trusted-publishing
 ```

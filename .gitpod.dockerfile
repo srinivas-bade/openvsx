@@ -1,6 +1,6 @@
 FROM gitpod/workspace-postgres:latest
 
-ENV NODE_VERSION=20.17.0
+ENV NODE_VERSION=26.13.1
 
 # the following env variable is solely here to invalidate the docker image. We want to rebuild the image from time to time to get the latest base image (which is cached).
 ENV DOCKER_BUMP=2
@@ -9,6 +9,10 @@ USER gitpod
 
 RUN bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh \
     && sdk install java 25-tem"
+
+RUN bash -c ". /home/gitpod/.nvm/nvm.sh \
+    && nvm install ${NODE_VERSION} \
+    && nvm alias default ${NODE_VERSION}"
 
 RUN curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-9.2.8-linux-x86_64.tar.gz --output elasticsearch-linux-x86_64.tar.gz \
     && tar -xzf elasticsearch-linux-x86_64.tar.gz \

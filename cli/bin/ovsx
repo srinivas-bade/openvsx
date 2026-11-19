@@ -2,8 +2,8 @@
 
 const semver = require('semver');
 
-if (semver.lt(process.versions.node, '20.0.0')) {
-    console.error('ovsx requires at least NodeJS version 20. Check your installed version with `node --version`.');
+if (semver.lt(process.versions.node, '26.0.0')) {
+    console.error('ovsx requires at least NodeJS version 26. Check your installed version with `node --version`.');
     process.exit(1);
 }
 

@@ -10,7 +10,7 @@ RUN yum update -q -y && \
     git \
   && rm -rf /var/lib/apt/lists/*
 
-RUN curl -fsSL https://rpm.nodesource.com/setup_20.x -o nodesource_setup.sh \
+RUN curl -fsSL https://rpm.nodesource.com/setup_26.x -o nodesource_setup.sh \
   && bash nodesource_setup.sh \
   && yum install -y nodejs \
   && node -v \
