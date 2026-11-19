@@ -14,7 +14,6 @@
         "noImplicitReturns": true,
         "noUnusedLocals": true,
         "strictNullChecks": true,
-        "jsx": "react-jsx",
-        "baseUrl": "./src"
+        "jsx": "react-jsx"
     }
 }
