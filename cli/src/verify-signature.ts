@@ -51,7 +51,7 @@ export async function verifySignature(options: VerifySignatureOptions): Promise<
     try {
         manifest = JSON.parse(manifestJson);
     } catch (err) {
-        throw new Error(`Failed to parse the manifest file as JSON: ${err instanceof Error ? err.message : err}`);
+        throw new Error(`Failed to parse the manifest file as JSON: ${err instanceof Error ? err.message : err}`, { cause: err });
     }
 
     const publicKey = crypto.createPublicKey({ key: publicKeyPem, format: 'pem' });
