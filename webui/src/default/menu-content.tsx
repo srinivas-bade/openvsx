@@ -60,8 +60,12 @@ export const MenuItemText: FunctionComponent<PropsWithChildren> = ({ children })
     return (
         <Typography
             variant='body2'
-            color='text.primary'
-            sx={{ display: 'flex', alignItems: 'center', textTransform: 'none' }}>
+            sx={{
+                color: 'text.primary',
+                display: 'flex',
+                alignItems: 'center',
+                textTransform: 'none'
+            }}>
             {children}
         </Typography>
     );

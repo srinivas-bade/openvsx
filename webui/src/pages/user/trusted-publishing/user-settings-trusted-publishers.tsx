@@ -108,7 +108,12 @@ export const UserSettingsTrustedPublishers: FunctionComponent = () => {
                         onDelete={remove}
                     />
                     {!canRegister ? (
-                        <Typography variant='body2' color='text.secondary' sx={{ mt: 2 }}>
+                        <Typography
+                            variant='body2'
+                            sx={{
+                                color: 'text.secondary',
+                                mt: 2
+                            }}>
                             Every active extension in your namespaces already has a trusted publisher. An extension can
                             have only one.
                         </Typography>

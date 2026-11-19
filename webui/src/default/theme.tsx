@@ -108,19 +108,20 @@ interface CustomPaletteColors {
     bg2: string;
 }
 
-declare module '@mui/material/styles/createPalette' {
+declare module '@mui/material/styles' {
     // eslint-disable-next-line @typescript-eslint/no-empty-object-type
     interface Palette extends CustomPaletteColors {}
     interface PaletteOptions extends Partial<CustomPaletteColors> {
         neutral: NeutralColors;
         textHint: Color;
     }
-}
-
-declare module '@mui/system/createTheme/shape' {
     interface Shape {
         borderRadiusCard: number;
         borderRadiusPill: number;
+    }
+    interface ShapeOptions {
+        borderRadiusCard?: number;
+        borderRadiusPill?: number;
     }
 }
 
@@ -240,12 +241,26 @@ export default function createDefaultTheme(themeType: 'light' | 'dark'): Theme {
             },
             MuiAlert: {
                 styleOverrides: {
-                    standardInfo: ({ theme }) =>
-                        alertTone(theme, theme.palette.secondary.light, theme.palette.accentSoft),
-                    standardWarning: ({ theme }) =>
-                        alertTone(theme, theme.palette.warningAccent, theme.palette.warningSoft),
-                    standardError: ({ theme }) => alertTone(theme, theme.palette.error.main),
-                    standardSuccess: ({ theme }) => alertTone(theme, theme.palette.success.main)
+                    root: ({ theme }) => ({
+                        variants: [
+                            {
+                                props: { variant: 'standard', color: 'info' },
+                                style: alertTone(theme, theme.palette.secondary.light, theme.palette.accentSoft)
+                            },
+                            {
+                                props: { variant: 'standard', color: 'warning' },
+                                style: alertTone(theme, theme.palette.warningAccent, theme.palette.warningSoft)
+                            },
+                            {
+                                props: { variant: 'standard', color: 'error' },
+                                style: alertTone(theme, theme.palette.error.main)
+                            },
+                            {
+                                props: { variant: 'standard', color: 'success' },
+                                style: alertTone(theme, theme.palette.success.main)
+                            }
+                        ]
+                    })
                 }
             },
             // VS Code buttons are flat and compact (~24px page actions), with corners
@@ -256,42 +271,59 @@ export default function createDefaultTheme(themeType: 'light' | 'dark'): Theme {
                 styleOverrides: {
                     // Neutral outlined buttons use the hairline divider instead of MUI's
                     // half-opacity primary border, darkening on hover like the card borders.
-                    outlined: ({ theme }) => ({
-                        borderColor: theme.palette.divider,
-                        color: theme.palette.text.secondary,
-                        '&:hover': {
-                            backgroundColor: 'transparent',
-                            borderColor: theme.palette.text.secondary,
-                            color: theme.palette.text.primary
-                        }
-                    }),
-                    outlinedSecondary: ({ theme }) => ({
-                        color: theme.palette.secondary.main,
-                        borderColor: alpha(theme.palette.secondary.main, 0.5),
-                        '&:hover': {
-                            borderColor: theme.palette.secondary.main,
-                            color: theme.palette.secondary.main
-                        }
-                    }),
-                    outlinedWarning: ({ theme }) => ({
-                        color: theme.palette.warningAccent,
-                        borderColor: alpha(theme.palette.warningAccent, 0.5),
-                        '&:hover': {
-                            borderColor: theme.palette.warningAccent,
-                            color: theme.palette.warningAccent
-                        }
-                    }),
-                    outlinedError: ({ theme }) => ({
-                        backgroundColor: theme.palette.surface2,
-                        borderColor: theme.palette.divider,
-                        color: theme.palette.error.main,
-                        // Background only: transitioning color/border makes the disabled→enabled swap look like a fade.
-                        transition: 'background-color 0.15s',
-                        '&:hover': {
-                            backgroundColor: theme.palette.error.main,
-                            borderColor: theme.palette.error.main,
-                            color: theme.palette.common.white
-                        }
+                    root: ({ theme }) => ({
+                        // Later entries win, so the neutral outlined style comes first.
+                        variants: [
+                            {
+                                props: { variant: 'outlined' },
+                                style: {
+                                    borderColor: theme.palette.divider,
+                                    color: theme.palette.text.secondary,
+                                    '&:hover': {
+                                        backgroundColor: 'transparent',
+                                        borderColor: theme.palette.text.secondary,
+                                        color: theme.palette.text.primary
+                                    }
+                                }
+                            },
+                            {
+                                props: { variant: 'outlined', color: 'secondary' },
+                                style: {
+                                    color: theme.palette.secondary.main,
+                                    borderColor: alpha(theme.palette.secondary.main, 0.5),
+                                    '&:hover': {
+                                        borderColor: theme.palette.secondary.main,
+                                        color: theme.palette.secondary.main
+                                    }
+                                }
+                            },
+                            {
+                                props: { variant: 'outlined', color: 'warning' },
+                                style: {
+                                    color: theme.palette.warningAccent,
+                                    borderColor: alpha(theme.palette.warningAccent, 0.5),
+                                    '&:hover': {
+                                        borderColor: theme.palette.warningAccent,
+                                        color: theme.palette.warningAccent
+                                    }
+                                }
+                            },
+                            {
+                                props: { variant: 'outlined', color: 'error' },
+                                style: {
+                                    backgroundColor: theme.palette.surface2,
+                                    borderColor: theme.palette.divider,
+                                    color: theme.palette.error.main,
+                                    // Background only: transitioning color/border makes the disabled→enabled swap look like a fade.
+                                    transition: 'background-color 0.15s',
+                                    '&:hover': {
+                                        backgroundColor: theme.palette.error.main,
+                                        borderColor: theme.palette.error.main,
+                                        color: theme.palette.common.white
+                                    }
+                                }
+                            }
+                        ]
                     })
                 }
             },

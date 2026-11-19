@@ -141,9 +141,18 @@ export const NamespaceAdmin: FunctionComponent = () => {
         );
     } else if (notFound) {
         listContainer = (
-            <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
                 <Typography variant='body1'>Namespace {notFound} not found. Do you want to create it?</Typography>
-                <Box mt={3}>
+                <Box
+                    sx={{
+                        mt: 3
+                    }}>
                     <ButtonWithProgress working={isCreatingNamespace} onClick={onCreate}>
                         Create Namespace {notFound}
                     </ButtonWithProgress>

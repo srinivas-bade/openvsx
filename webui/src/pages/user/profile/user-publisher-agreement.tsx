@@ -167,12 +167,16 @@ export const UserPublisherAgreement: FunctionComponent<UserPublisherAgreementPro
                 open={dialogOpen}
                 onClose={onClose}
                 maxWidth='xl'
-                sx={{ '& .MuiDialog-paperScrollPaper': { height: '75%', width: '100%' } }}>
+                sx={{ '& .MuiDialog-scrollPaper > .MuiDialog-paper': { height: '75%', width: '100%' } }}>
                 <DialogContent>
                     {agreementText ? (
                         <DialogContentText component='div'>
                             <SanitizedMarkdown content={agreementText} sanitize={false} linkify={false} />
-                            <Box display='flex' justifyContent='flex-end'>
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    justifyContent: 'flex-end'
+                                }}>
                                 <Button onClick={closePublisherAgreement}>Close</Button>
                                 {!publisherAgreementSigned && (
                                     <ButtonWithProgress working={signing} onClick={signPublisherAgreement}>
@@ -182,7 +186,13 @@ export const UserPublisherAgreement: FunctionComponent<UserPublisherAgreementPro
                             </Box>
                         </DialogContentText>
                     ) : (
-                        <Box height={1} display='flex' justifyContent='center' alignItems='center'>
+                        <Box
+                            sx={{
+                                height: 1,
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}>
                             <CircularProgress color='secondary' />
                         </Box>
                     )}

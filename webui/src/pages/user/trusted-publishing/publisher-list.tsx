@@ -116,13 +116,19 @@ export const PublisherList: FunctionComponent<PublisherListProps> = props => {
                                         {summary ? (
                                             <Typography
                                                 variant='body2'
-                                                color='text.secondary'
-                                                sx={{ wordBreak: 'break-word' }}>
+                                                sx={{
+                                                    color: 'text.secondary',
+                                                    wordBreak: 'break-word'
+                                                }}>
                                                 {summary}
                                             </Typography>
                                         ) : null}
                                         {publisher.pending ? (
-                                            <Typography variant='body2' color='warning.main'>
+                                            <Typography
+                                                variant='body2'
+                                                sx={{
+                                                    color: 'warning.main'
+                                                }}>
                                                 {isExpired(publisher.registrationCodeExpiry) ? (
                                                     'Pending: the registration code has expired. Delete this registration and register it again.'
                                                 ) : (
@@ -143,7 +149,11 @@ export const PublisherList: FunctionComponent<PublisherListProps> = props => {
                                             </Typography>
                                         ) : null}
                                         {publisher.createdTimestamp ? (
-                                            <Typography variant='body2' color='text.secondary'>
+                                            <Typography
+                                                variant='body2'
+                                                sx={{
+                                                    color: 'text.secondary'
+                                                }}>
                                                 Created: <Timestamp value={publisher.createdTimestamp} />
                                             </Typography>
                                         ) : null}

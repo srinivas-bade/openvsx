@@ -31,10 +31,10 @@ The Docker image of the server application does not include the web UI. The reas
 Customization of the UI is done by creating an npm package with a dependency on [openvsx-webui](https://www.npmjs.com/package/openvsx-webui), which is a library of [React](https://reactjs.org) components. A minimal frontend app is shown in the following TypeScript-React (`tsx`) code.
 
 ```tsx
-import * as ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import * as React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from '@material-ui/styles';
+import { BrowserRouter } from 'react-router';
+import { ThemeProvider } from '@mui/material/styles';
 import { Main, ExtensionRegistryService } from 'openvsx-webui';
 
 const App: React.FunctionComponent = () => {
@@ -46,8 +46,8 @@ const App: React.FunctionComponent = () => {
     </ThemeProvider>;
 };
 
-const node = document.getElementById('main');
-ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, node);
+const node = document.getElementById('main')!;
+createRoot(node).render(<BrowserRouter><App /></BrowserRouter>);
 ```
 
 See the [Material UI documentation](https://material-ui.com/customization/theming/) and the [default theme](../webui/src/default/theme.tsx) to learn how to define a theme.

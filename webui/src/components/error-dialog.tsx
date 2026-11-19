@@ -66,7 +66,14 @@ export const ErrorDialog: FunctionComponent<ErrorDialogProps> = props => {
             <DialogContent>
                 <DialogContentText sx={{ color: theme => theme.palette.error.main }}>
                     {props.errorMessage}
-                    {codeContent ? <Box mt={2}>{codeContent}</Box> : null}
+                    {codeContent ? (
+                        <Box
+                            sx={{
+                                mt: 2
+                            }}>
+                            {codeContent}
+                        </Box>
+                    ) : null}
                     {ErrorHelp ? <ErrorHelp errorCode={props.errorCode} errorMessage={props.errorMessage} /> : null}
                 </DialogContentText>
             </DialogContent>

@@ -20,7 +20,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
  */
 export const useSavedFlash = (duration: number, onDone?: () => void) => {
     const [saved, setSaved] = useState(false);
-    const timer = useRef<ReturnType<typeof setTimeout>>();
+    const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
     const onDoneRef = useRef(onDone);
     onDoneRef.current = onDone;
 

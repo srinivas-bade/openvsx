@@ -34,7 +34,7 @@ export class FileStore implements Store {
 			if (err.code === 'ENOENT') {
 				return new FileStore(path, []);
 			} else if (/SyntaxError/.test(err)) {
-				throw new Error(`Error parsing file store: ${path}.`);
+				throw new Error(`Error parsing file store: ${path}.`, { cause: err });
 			}
 
 			throw err;
@@ -85,7 +85,7 @@ async function verifyBackend(keychain: typeof import('cross-keychain'), serviceN
 	try {
 		await keychain.getPassword(serviceName, serviceName);
 	} catch (err) {
-		throw new Error(`${description} is unavailable: ${err.message}`);
+		throw new Error(`${description} is unavailable: ${err.message}`, { cause: err });
 	}
 }
 

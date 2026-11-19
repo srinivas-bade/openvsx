@@ -111,10 +111,19 @@ export const ScansTabContent: FunctionComponent = () => {
                 </Box>
             ) : scans.length === 0 ? (
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 4 }}>
-                    <Typography variant='h6' color='text.secondary'>
+                    <Typography
+                        variant='h6'
+                        sx={{
+                            color: 'text.secondary'
+                        }}>
                         No scans found
                     </Typography>
-                    <Typography variant='body2' color='text.secondary' sx={{ mt: 1 }}>
+                    <Typography
+                        variant='body2'
+                        sx={{
+                            color: 'text.secondary',
+                            mt: 1
+                        }}>
                         {search.hasActiveSearch
                             ? 'Try adjusting your search query'
                             : 'Running and completed scans will appear here'}

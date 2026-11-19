@@ -1,15 +1,17 @@
 {
     "compilerOptions": {
-        "target": "es2020",
+        "target": "es2024",
         "module": "commonjs",
         "sourceMap": true,
         "declaration": true,
         "declarationMap": true,
+        "strict": false,
         "noImplicitAny": false,
         "noImplicitThis": true,
         "noImplicitReturns": true,
         "noUnusedLocals": true,
         "strictNullChecks": true,
+        "rootDir": "src",
         "outDir": "lib",
         "typeRoots": ["./node_modules/@types"]
     },

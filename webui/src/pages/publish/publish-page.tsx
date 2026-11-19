@@ -54,7 +54,7 @@ const DropPrompt = styled(ButtonBase)(({ theme }) => ({
     ...focusOutline(theme)
 }));
 
-const CommandBlock = styled(Box)(({ theme }) => ({
+const CommandBlock = styled('pre')(({ theme }) => ({
     ...cardSurface(theme),
     backgroundColor: theme.palette.surface2,
     padding: '1rem 1.125rem',
@@ -165,7 +165,7 @@ export const PublishPage: FunctionComponent = () => {
                 )}
                 <Box sx={{ mt: '2.5rem' }}>
                     <Eyebrow sx={{ mb: '0.75rem' }}>Or publish from the command line</Eyebrow>
-                    <CommandBlock component='pre'>{PUBLISH_COMMANDS}</CommandBlock>
+                    <CommandBlock>{PUBLISH_COMMANDS}</CommandBlock>
                 </Box>
             </PageContainer>
         </>

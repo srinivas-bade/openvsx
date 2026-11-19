@@ -219,7 +219,7 @@ export const WeeklyDownloads: FunctionComponent<{ extension: Extension }> = ({ e
                         margin={{ top: 5, right: 0, bottom: 0, left: 4 }}
                         // Floor the top at 1 so an all-zero series keeps a non-degenerate domain and
                         // its flat line sits on the baseline.
-                        yAxis={{ domainLimit: (_, maxValue) => ({ min: 0, max: Math.max(maxValue, 1) }) }}
+                        yAxis={{ domainLimit: (_, maxValue) => ({ min: 0, max: Math.max(Number(maxValue), 1) }) }}
                         clipAreaOffset={{ top: 2, bottom: 2 }}
                         showHighlight
                         // A non-'none' axis highlight is also what enables the axis listener, so

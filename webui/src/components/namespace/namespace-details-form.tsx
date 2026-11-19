@@ -337,7 +337,9 @@ export const NamespaceDetailsForm: FunctionComponent<NamespaceDetailsFormProps> 
                     name={INPUT_DISPLAY_NAME}
                     value={details.displayName ?? ''}
                     onChange={handleInputChange}
-                    inputProps={{ maxLength: 32 }}
+                    slotProps={{
+                        htmlInput: { maxLength: 32 }
+                    }}
                 />
             </FormRow>
             <FormRow>
@@ -395,24 +397,26 @@ export const NamespaceDetailsForm: FunctionComponent<NamespaceDetailsFormProps> 
                     onChange={handleInputChange}
                     error={!linkedinValid}
                     helperText={!linkedinValid ? 'Just the account name — no slashes or spaces' : undefined}
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position='start'>
-                                <Select
-                                    variant='standard'
-                                    disableUnderline
-                                    value={linkedInAccountType}
-                                    onChange={handleSelectChange}
-                                    sx={{
-                                        fontSize: '0.875rem',
-                                        color: 'text.disabled',
-                                        '& .MuiSelect-select': { py: 0 }
-                                    }}>
-                                    <MenuItem value={LINKED_IN_PERSONAL}>linkedin.com/in/</MenuItem>
-                                    <MenuItem value={LINKED_IN_COMPANY}>linkedin.com/company/</MenuItem>
-                                </Select>
-                            </InputAdornment>
-                        )
+                    slotProps={{
+                        input: {
+                            startAdornment: (
+                                <InputAdornment position='start'>
+                                    <Select
+                                        variant='standard'
+                                        disableUnderline
+                                        value={linkedInAccountType}
+                                        onChange={handleSelectChange}
+                                        sx={{
+                                            fontSize: '0.875rem',
+                                            color: 'text.disabled',
+                                            '& .MuiSelect-select': { py: 0 }
+                                        }}>
+                                        <MenuItem value={LINKED_IN_PERSONAL}>linkedin.com/in/</MenuItem>
+                                        <MenuItem value={LINKED_IN_COMPANY}>linkedin.com/company/</MenuItem>
+                                    </Select>
+                                </InputAdornment>
+                            )
+                        }
                     }}
                 />
             </FormRow>
@@ -427,8 +431,10 @@ export const NamespaceDetailsForm: FunctionComponent<NamespaceDetailsFormProps> 
                     onChange={handleInputChange}
                     error={!githubValid}
                     helperText={!githubValid ? 'Just the account name — no slashes or spaces' : undefined}
-                    InputProps={{
-                        startAdornment: <InputAdornment position='start'>github.com/</InputAdornment>
+                    slotProps={{
+                        input: {
+                            startAdornment: <InputAdornment position='start'>github.com/</InputAdornment>
+                        }
                     }}
                 />
             </FormRow>
@@ -443,8 +449,10 @@ export const NamespaceDetailsForm: FunctionComponent<NamespaceDetailsFormProps> 
                     onChange={handleInputChange}
                     error={!twitterValid}
                     helperText={!twitterValid ? 'Just the account name — no slashes or spaces' : undefined}
-                    InputProps={{
-                        startAdornment: <InputAdornment position='start'>twitter.com/</InputAdornment>
+                    slotProps={{
+                        input: {
+                            startAdornment: <InputAdornment position='start'>twitter.com/</InputAdornment>
+                        }
                     }}
                 />
             </FormRow>

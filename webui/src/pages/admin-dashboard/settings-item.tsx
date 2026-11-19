@@ -39,7 +39,12 @@ export const SettingsItem: FC<SettingsItemProps> = ({ title, description, checke
                 <Typography variant='subtitle1' gutterBottom>
                     {title}
                 </Typography>
-                <Typography variant='body2' color='text.secondary' sx={{ display: { xs: 'none', sm: 'block' } }}>
+                <Typography
+                    variant='body2'
+                    sx={{
+                        color: 'text.secondary',
+                        display: { xs: 'none', sm: 'block' }
+                    }}>
                     {description}
                 </Typography>
             </Box>
@@ -52,8 +57,11 @@ export const SettingsItem: FC<SettingsItemProps> = ({ title, description, checke
 
             <Typography
                 variant='body2'
-                color='text.secondary'
-                sx={{ display: { xs: 'block', sm: 'none' }, flexBasis: '100%' }}>
+                sx={{
+                    color: 'text.secondary',
+                    display: { xs: 'block', sm: 'none' },
+                    flexBasis: '100%'
+                }}>
                 {description}
             </Typography>
         </Box>

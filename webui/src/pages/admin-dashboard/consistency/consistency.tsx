@@ -77,7 +77,11 @@ export const DataConsistency: FC = () => {
                     <Typography variant='h4' component='h1'>
                         Data Consistency
                     </Typography>
-                    <Typography variant='body2' color='text.secondary'>
+                    <Typography
+                        variant='body2'
+                        sx={{
+                            color: 'text.secondary'
+                        }}>
                         Checks the database for known inconsistencies and lets you fix them directly. Findings shown
                         below are always live; a check that does not require human judgment also auto-fixes itself once
                         a day via a scheduled job.
@@ -126,7 +130,11 @@ const ConsistencyCheckCard: FC<{ check: ConsistencyCheck; expanded: boolean; onT
                     />
                     <Box sx={{ flex: 1 }}>
                         <Typography variant='subtitle1'>{check.name}</Typography>
-                        <Typography variant='body2' color='text.secondary'>
+                        <Typography
+                            variant='body2'
+                            sx={{
+                                color: 'text.secondary'
+                            }}>
                             {check.description}
                         </Typography>
                     </Box>
@@ -152,7 +160,12 @@ const ConsistencyCheckCard: FC<{ check: ConsistencyCheck; expanded: boolean; onT
                     !isLoading &&
                     data &&
                     (data.findings.length === 0 ? (
-                        <Typography color='text.secondary'>No inconsistencies found.</Typography>
+                        <Typography
+                            sx={{
+                                color: 'text.secondary'
+                            }}>
+                            No inconsistencies found.
+                        </Typography>
                     ) : (
                         <Paper variant='outlined'>
                             <List dense>

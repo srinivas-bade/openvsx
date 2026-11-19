@@ -252,7 +252,7 @@ export const RegisterTrustedPublisherDialog: FunctionComponent<RegisterTrustedPu
         extension !== '' &&
         requiredKeys.every(key => (registration[key] ?? '').trim() !== '');
 
-    const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
+    const handleRegister = async (event: FormEvent<HTMLElement>) => {
         event.preventDefault();
         if (pendingPublisher) {
             return;
@@ -356,15 +356,18 @@ export const RegisterTrustedPublisherDialog: FunctionComponent<RegisterTrustedPu
         <Dialog
             open={open}
             onClose={handleClose}
-            TransitionProps={{
-                onExited: () => {
-                    setPendingPublisher(undefined);
-                    resetRegistration();
-                }
-            }}
             fullWidth
             maxWidth='sm'
-            PaperProps={{ component: 'form', onSubmit: handleRegister }}>
+            slotProps={{
+                transition: {
+                    onExited: () => {
+                        setPendingPublisher(undefined);
+                        resetRegistration();
+                    }
+                },
+
+                paper: { component: 'form', onSubmit: handleRegister }
+            }}>
             <DialogTitle>Register trusted publisher</DialogTitle>
             {loading && <LinearProgress color='secondary' />}
             {pendingPublisher ? (

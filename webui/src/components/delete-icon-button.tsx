@@ -14,7 +14,7 @@
 import { FunctionComponent } from 'react';
 import { IconButton, IconButtonProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
 // Circular twin of the outlined-error Button (see MuiButton.outlinedError in the theme).
 const Root = styled(IconButton)(({ theme }) => ({

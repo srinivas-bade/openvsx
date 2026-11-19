@@ -24,7 +24,7 @@ interface UseScanCardStateReturn {
     badges: DetailBadge[];
     liveDuration: string;
     // Card ref for height tracking
-    cardRef: RefObject<HTMLDivElement>;
+    cardRef: RefObject<HTMLDivElement | null>;
 }
 
 /**

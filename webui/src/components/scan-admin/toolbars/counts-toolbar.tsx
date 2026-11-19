@@ -157,11 +157,13 @@ export const CountsToolbar: FunctionComponent<CountsToolbarProps> = ({
                             anchorEl={filterMenuAnchor}
                             open={filterMenuOpen}
                             onClose={() => setFilterMenuAnchor(null)}
-                            PaperProps={{
-                                sx: {
-                                    maxHeight: 400,
-                                    minWidth: 200,
-                                    backgroundColor: theme.palette.scanBackground.dark
+                            slotProps={{
+                                paper: {
+                                    sx: {
+                                        maxHeight: 400,
+                                        minWidth: 200,
+                                        backgroundColor: theme.palette.scanBackground.dark
+                                    }
                                 }
                             }}>
                             {filterOptions.map(option => (

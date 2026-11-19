@@ -47,7 +47,10 @@ export const ExtensionCardListItem: FunctionComponent<ExtensionCardListItemProps
     const renderStatus = (): ReactNode => {
         if (extension?.removed) {
             return (
-                <Box mt={0.25}>
+                <Box
+                    sx={{
+                        mt: 0.25
+                    }}>
                     <Typography variant='body2' sx={{ fontWeight: 600, color: 'error.main' }}>
                         Deleted
                     </Typography>
@@ -60,7 +63,10 @@ export const ExtensionCardListItem: FunctionComponent<ExtensionCardListItemProps
 
         if (extension.namespaceOwnershipConflict) {
             return (
-                <Box mt={0.25}>
+                <Box
+                    sx={{
+                        mt: 0.25
+                    }}>
                     <Typography variant='body2' sx={{ fontWeight: 600, color: 'warning.main' }}>
                         Namespace needs verification
                     </Typography>
@@ -74,7 +80,10 @@ export const ExtensionCardListItem: FunctionComponent<ExtensionCardListItemProps
 
         if (extension.reviewStatus === 'under_review') {
             return (
-                <Box mt={0.25}>
+                <Box
+                    sx={{
+                        mt: 0.25
+                    }}>
                     <Typography variant='body2' sx={{ fontWeight: 600 }}>
                         Under review
                     </Typography>
@@ -88,7 +97,10 @@ export const ExtensionCardListItem: FunctionComponent<ExtensionCardListItemProps
 
         if (extension.reviewStatus === 'rejected') {
             return (
-                <Box mt={0.25}>
+                <Box
+                    sx={{
+                        mt: 0.25
+                    }}>
                     <Typography variant='body2' sx={{ fontWeight: 600, color: 'error.main' }}>
                         Rejected
                     </Typography>
@@ -100,12 +112,19 @@ export const ExtensionCardListItem: FunctionComponent<ExtensionCardListItemProps
         }
 
         if (inactive) {
-            return <Box mt={0.25}>Deactivated</Box>;
+            return (
+                <Box
+                    sx={{
+                        mt: 0.25
+                    }}>
+                    Deactivated
+                </Box>
+            );
         }
 
         if (extension.timestamp) {
             return (
-                <Paragraph mt={0.25}>
+                <Paragraph sx={{ mt: 0.25 }}>
                     <span>Published:</span>
                     <Timestamp value={extension.timestamp} sx={noOverflow} />
                 </Paragraph>

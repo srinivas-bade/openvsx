@@ -166,7 +166,14 @@ export const AccessControlDetails: FunctionComponent<AccessControlDetailsProps> 
                 sx={{ minWidth: 0, alignItems: { md: 'center' } }}>
                 <Avatar variant='rounded' src={user.avatarUrl} sx={{ width: 56, height: 56 }} />
                 <Box sx={{ minWidth: 0, flex: 1 }}>
-                    <Stack direction='row' spacing={1} alignItems='center' useFlexGap sx={{ flexWrap: 'wrap' }}>
+                    <Stack
+                        direction='row'
+                        spacing={1}
+                        useFlexGap
+                        sx={{
+                            alignItems: 'center',
+                            flexWrap: 'wrap'
+                        }}>
                         <Typography variant='h6' noWrap>
                             {user.loginName}
                         </Typography>
@@ -192,7 +199,12 @@ export const AccessControlDetails: FunctionComponent<AccessControlDetailsProps> 
                             />
                         )}
                     </Stack>
-                    <Typography variant='body2' color='text.secondary' noWrap>
+                    <Typography
+                        variant='body2'
+                        noWrap
+                        sx={{
+                            color: 'text.secondary'
+                        }}>
                         {user.fullName || '—'}
                     </Typography>
                 </Box>
@@ -232,7 +244,12 @@ export const AccessControlDetails: FunctionComponent<AccessControlDetailsProps> 
 
             <Box>
                 <Typography variant='subtitle2'>Permissions</Typography>
-                <Typography variant='body2' color='text.secondary' sx={{ mb: 1 }}>
+                <Typography
+                    variant='body2'
+                    sx={{
+                        color: 'text.secondary',
+                        mb: 1
+                    }}>
                     {isAdmin
                         ? 'Admin implies every permission, including ones added later - individual grants are cleared.'
                         : 'Individual admin capabilities granted to this user.'}

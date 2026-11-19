@@ -108,7 +108,7 @@ async function requestToken(
     try {
         result = await exchangeWithRetry(registry, namespace, extension, idToken, options.registrationCode);
     } catch (err) {
-        throw new Error(`${err.message}\n${registrationHint(registry, namespace, extension)}`);
+        throw new Error(`${err.message}\n${registrationHint(registry, namespace, extension)}`, { cause: err });
     }
     if (result.error) {
         throw new Error(`${result.error}\n${registrationHint(registry, namespace, extension)}`);

@@ -50,7 +50,11 @@ export const ExtensionDetailDownloadsMenu: FunctionComponent<ExtensionDetailDown
                             href={downloadLink}
                             onClick={handleClose}
                             sx={{ textDecoration: 'none' }}>
-                            <Typography variant='body2' color='text.primary'>
+                            <Typography
+                                variant='body2'
+                                sx={{
+                                    color: 'text.primary'
+                                }}>
                                 {getTargetPlatformDisplayName(targetPlatform)}
                             </Typography>
                         </MenuItem>

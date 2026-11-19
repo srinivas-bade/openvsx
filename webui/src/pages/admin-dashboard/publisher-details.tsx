@@ -47,11 +47,21 @@ const DetailSection: FunctionComponent<{ icon: ReactNode; title: string; count?:
     children
 }) => (
     <Box>
-        <Stack direction='row' spacing={0.75} alignItems='center' sx={{ mb: 1 }}>
+        <Stack
+            direction='row'
+            spacing={0.75}
+            sx={{
+                alignItems: 'center',
+                mb: 1
+            }}>
             {icon}
             <Typography variant='subtitle2'>{title}</Typography>
             {count !== undefined && (
-                <Typography variant='caption' color='text.secondary'>
+                <Typography
+                    variant='caption'
+                    sx={{
+                        color: 'text.secondary'
+                    }}>
                     ({count})
                 </Typography>
             )}
@@ -67,12 +77,27 @@ const DangerZone: FunctionComponent<{ publisherInfo: PublisherInfo }> = ({ publi
         <Box sx={{ border: 1, borderColor: 'error.light', borderRadius: 1, overflow: 'hidden' }}>
             {publisherInfo.activeAccessTokenNum > 0 && (
                 <>
-                    <Stack direction='row' alignItems='center' justifyContent='space-between' sx={{ px: 2, py: 1.5 }}>
+                    <Stack
+                        direction='row'
+                        sx={{
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            px: 2,
+                            py: 1.5
+                        }}>
                         <Box>
-                            <Typography variant='body2' fontWeight={600}>
+                            <Typography
+                                variant='body2'
+                                sx={{
+                                    fontWeight: 600
+                                }}>
                                 Revoke access tokens
                             </Typography>
-                            <Typography variant='body2' color='text.secondary'>
+                            <Typography
+                                variant='body2'
+                                sx={{
+                                    color: 'text.secondary'
+                                }}>
                                 Deactivate {publisherInfo.activeAccessTokenNum} active access token
                                 {publisherInfo.activeAccessTokenNum === 1 ? '' : 's'} for {loginName}. This cannot be
                                 undone.
@@ -87,12 +112,27 @@ const DangerZone: FunctionComponent<{ publisherInfo: PublisherInfo }> = ({ publi
             )}
             {publisherInfo.user.publisherAgreement?.status === 'revoked' && (
                 <>
-                    <Stack direction='row' alignItems='center' justifyContent='space-between' sx={{ px: 2, py: 1.5 }}>
+                    <Stack
+                        direction='row'
+                        sx={{
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            px: 2,
+                            py: 1.5
+                        }}>
                         <Box>
-                            <Typography variant='body2' fontWeight={600}>
+                            <Typography
+                                variant='body2'
+                                sx={{
+                                    fontWeight: 600
+                                }}>
                                 Reinstate publisher agreement
                             </Typography>
-                            <Typography variant='body2' color='text.secondary'>
+                            <Typography
+                                variant='body2'
+                                sx={{
+                                    color: 'text.secondary'
+                                }}>
                                 Let {loginName} sign the publisher agreement again.
                             </Typography>
                         </Box>
@@ -103,12 +143,27 @@ const DangerZone: FunctionComponent<{ publisherInfo: PublisherInfo }> = ({ publi
                     <Divider />
                 </>
             )}
-            <Stack direction='row' alignItems='center' justifyContent='space-between' sx={{ px: 2, py: 1.5 }}>
+            <Stack
+                direction='row'
+                sx={{
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    px: 2,
+                    py: 1.5
+                }}>
                 <Box>
-                    <Typography variant='body2' fontWeight={600}>
+                    <Typography
+                        variant='body2'
+                        sx={{
+                            fontWeight: 600
+                        }}>
                         Revoke publisher contributions
                     </Typography>
-                    <Typography variant='body2' color='text.secondary'>
+                    <Typography
+                        variant='body2'
+                        sx={{
+                            color: 'text.secondary'
+                        }}>
                         Deactivate all extensions, access tokens, and revoke the publisher agreement for {loginName}.
                         This cannot be undone.
                     </Typography>
@@ -118,12 +173,27 @@ const DangerZone: FunctionComponent<{ publisherInfo: PublisherInfo }> = ({ publi
                 </Box>
             </Stack>
             <Divider />
-            <Stack direction='row' alignItems='center' justifyContent='space-between' sx={{ px: 2, py: 1.5 }}>
+            <Stack
+                direction='row'
+                sx={{
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    px: 2,
+                    py: 1.5
+                }}>
                 <Box>
-                    <Typography variant='body2' fontWeight={600}>
+                    <Typography
+                        variant='body2'
+                        sx={{
+                            fontWeight: 600
+                        }}>
                         Forget user
                     </Typography>
-                    <Typography variant='body2' color='text.secondary'>
+                    <Typography
+                        variant='body2'
+                        sx={{
+                            color: 'text.secondary'
+                        }}>
                         Erase {loginName} in response to a data-protection erasure request. This cannot be undone.
                     </Typography>
                 </Box>
@@ -189,7 +259,14 @@ export const PublisherDetails: FunctionComponent<{ entry: UserRelationships }> =
                 sx={{ minWidth: 0, alignItems: { md: 'center' } }}>
                 <Avatar variant='rounded' src={user.avatarUrl} sx={{ width: 56, height: 56 }} />
                 <Box sx={{ minWidth: 0, flex: 1 }}>
-                    <Stack direction='row' spacing={1} alignItems='center' useFlexGap sx={{ flexWrap: 'wrap' }}>
+                    <Stack
+                        direction='row'
+                        spacing={1}
+                        useFlexGap
+                        sx={{
+                            alignItems: 'center',
+                            flexWrap: 'wrap'
+                        }}>
                         <Typography variant='h6' noWrap>
                             {user.loginName}
                         </Typography>
@@ -217,7 +294,12 @@ export const PublisherDetails: FunctionComponent<{ entry: UserRelationships }> =
                         {/* Read-only here - role and permissions are edited on the Access Control page. */}
                         {user.role && <Chip label={user.role} size='small' variant='outlined' />}
                     </Stack>
-                    <Typography variant='body2' color='text.secondary' noWrap>
+                    <Typography
+                        variant='body2'
+                        noWrap
+                        sx={{
+                            color: 'text.secondary'
+                        }}>
                         {user.fullName || '—'}
                     </Typography>
                 </Box>
@@ -244,7 +326,11 @@ export const PublisherDetails: FunctionComponent<{ entry: UserRelationships }> =
                             ))}
                         </Stack>
                     ) : (
-                        <Typography variant='body2' color='text.secondary'>
+                        <Typography
+                            variant='body2'
+                            sx={{
+                                color: 'text.secondary'
+                            }}>
                             None
                         </Typography>
                     )}
@@ -287,7 +373,11 @@ export const PublisherDetails: FunctionComponent<{ entry: UserRelationships }> =
                                     routePrefix={extensionRoutePrefix}
                                 />
                             ) : (
-                                <Typography variant='body2' color='text.secondary'>
+                                <Typography
+                                    variant='body2'
+                                    sx={{
+                                        color: 'text.secondary'
+                                    }}>
                                     This user has not published any extensions.
                                 </Typography>
                             )}

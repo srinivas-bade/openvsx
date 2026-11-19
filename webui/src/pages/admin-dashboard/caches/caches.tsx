@@ -86,7 +86,11 @@ export const CachesAdmin: FC = () => {
                     <Typography variant='h4' component='h1'>
                         Caches
                     </Typography>
-                    <Typography variant='body2' color='text.secondary'>
+                    <Typography
+                        variant='body2'
+                        sx={{
+                            color: 'text.secondary'
+                        }}>
                         Every cache registered in the application, what it holds and how often it is hit. Clearing one
                         takes effect immediately, on this node.
                     </Typography>
@@ -143,7 +147,11 @@ export const CachesAdmin: FC = () => {
                             {caches.length === 0 && (
                                 <TableRow>
                                     <TableCell colSpan={8}>
-                                        <Typography variant='body2' color='text.secondary'>
+                                        <Typography
+                                            variant='body2'
+                                            sx={{
+                                                color: 'text.secondary'
+                                            }}>
                                             No caches are registered.
                                         </Typography>
                                     </TableCell>
@@ -158,7 +166,11 @@ export const CachesAdmin: FC = () => {
                                         <Chip label={cache.implementation} size='small' variant='outlined' />
                                     </TableCell>
                                     <TableCell>
-                                        <Typography variant='body2' color='text.secondary'>
+                                        <Typography
+                                            variant='body2'
+                                            sx={{
+                                                color: 'text.secondary'
+                                            }}>
                                             {cache.manager}
                                         </Typography>
                                     </TableCell>
@@ -195,7 +207,12 @@ const MeasurementCell: FC<{ value: string; reason: string }> = ({ value, reason 
     return (
         <TableCell align='right'>
             <Tooltip title={reason}>
-                <Typography variant='body2' component='span' color='text.disabled'>
+                <Typography
+                    variant='body2'
+                    component='span'
+                    sx={{
+                        color: 'text.disabled'
+                    }}>
                     {NOT_MEASURED}
                 </Typography>
             </Tooltip>
