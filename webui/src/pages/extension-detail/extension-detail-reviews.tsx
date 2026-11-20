@@ -149,7 +149,10 @@ export const ExtensionDetailReviews: FunctionComponent<ExtensionDetailReviewsPro
         }
         if (list.reviews.length === 0) {
             return (
-                <Box mt={3}>
+                <Box
+                    sx={{
+                        mt: 3
+                    }}>
                     <Typography>Be the first to review this extension</Typography>
                 </Box>
             );
@@ -160,9 +163,19 @@ export const ExtensionDetailReviews: FunctionComponent<ExtensionDetailReviewsPro
     const renderReview = (r: ExtensionReview): ReactNode => {
         return (
             <Fragment key={r.user.loginName + r.timestamp}>
-                <Box display='flex' justifyContent='space-between'>
-                    <Box my={2}>
-                        <Box display='flex'>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between'
+                    }}>
+                    <Box
+                        sx={{
+                            my: 2
+                        }}>
+                        <Box
+                            sx={{
+                                display: 'flex'
+                            }}>
                             {r.timestamp ? (
                                 <>
                                     <Typography variant='body2'>
@@ -173,7 +186,12 @@ export const ExtensionDetailReviews: FunctionComponent<ExtensionDetailReviewsPro
                             ) : null}
                             <Typography variant='body2'>
                                 {r.user.homepage ? (
-                                    <Link href={r.user.homepage} color='text.primary' underline='hover'>
+                                    <Link
+                                        href={r.user.homepage}
+                                        underline='hover'
+                                        sx={{
+                                            color: 'text.primary'
+                                        }}>
                                         {r.user.loginName}
                                     </Link>
                                 ) : (
@@ -181,17 +199,30 @@ export const ExtensionDetailReviews: FunctionComponent<ExtensionDetailReviewsPro
                                 )}
                             </Typography>
                         </Box>
-                        <Box display='flex' alignItems='center'>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center'
+                            }}>
                             <ExtensionRatingStars number={r.rating} />
                         </Box>
-                        <Box overflow='auto'>
+                        <Box
+                            sx={{
+                                overflow: 'auto'
+                            }}>
                             <Typography variant='body1' sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
                                 {r.comment}
                             </Typography>
                         </Box>
                     </Box>
                     {hasPermission(context.user, 'manage_extensions') ? (
-                        <Box sx={{ mb: 2, minWidth: 160 }} display='flex' alignItems='end'>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'end',
+                                mb: 2,
+                                minWidth: 160
+                            }}>
                             {renderAdminRemoveButton(r)}
                         </Box>
                     ) : null}

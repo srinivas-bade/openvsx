@@ -32,7 +32,12 @@ export const SettingsSection: FC<PropsWithChildren<SettingsSectionProps>> = ({
         <Typography variant='h6' component='h2'>
             {title}
         </Typography>
-        <Typography variant='body2' color='text.secondary' gutterBottom>
+        <Typography
+            variant='body2'
+            gutterBottom
+            sx={{
+                color: 'text.secondary'
+            }}>
             {description}
         </Typography>
         <Paper

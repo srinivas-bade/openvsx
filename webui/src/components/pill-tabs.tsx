@@ -75,7 +75,7 @@ export const PillTabs: FunctionComponent<PillTabsProps> = ({
                     minHeight: 0,
                     mx: bleed,
                     '& .MuiTabs-indicator': { display: 'none' },
-                    '& .MuiTabs-flexContainer': {
+                    '& .MuiTabs-list': {
                         gap: '0.5rem',
                         // Inside the scroller — its overflow clips the focus ring otherwise.
                         py: '0.625rem',

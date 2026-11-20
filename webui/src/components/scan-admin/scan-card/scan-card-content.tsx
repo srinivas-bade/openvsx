@@ -95,7 +95,11 @@ const CaptionLabel: FunctionComponent<PropsWithChildren> = ({ children }) => (
 
 /** N/A placeholder for unavailable data */
 const NotAvailable: FunctionComponent = () => (
-    <Typography variant='body2' color='text.disabled'>
+    <Typography
+        variant='body2'
+        sx={{
+            color: 'text.disabled'
+        }}>
         N/A
     </Typography>
 );
@@ -164,7 +168,9 @@ const DownloadCell: FunctionComponent<{ scan: ScanResult }> = ({ scan }) => {
                             title='Potentially malicious'
                             arrow
                             disableInteractive
-                            PopperProps={{ disablePortal: true, sx: { pointerEvents: 'none' } }}>
+                            slotProps={{
+                                popper: { disablePortal: true, sx: { pointerEvents: 'none' } }
+                            }}>
                             <WarningAmberIcon
                                 sx={{
                                     fontSize: 16,
@@ -316,7 +322,9 @@ const DecisionStatusCell: FunctionComponent<{ adminDecision: ScanResult['adminDe
                 title={`Decided by ${adminDecision.decidedBy} on ${formatDateTime(adminDecision.dateDecided)}`}
                 arrow
                 disableInteractive
-                PopperProps={{ disablePortal: true, sx: { pointerEvents: 'none' } }}>
+                slotProps={{
+                    popper: { disablePortal: true, sx: { pointerEvents: 'none' } }
+                }}>
                 <Typography
                     variant='h6'
                     sx={{

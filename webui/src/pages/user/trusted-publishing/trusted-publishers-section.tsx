@@ -108,7 +108,12 @@ export const TrustedPublishersSection: FunctionComponent<TrustedPublishersSectio
     return (
         <>
             {props.intro ? (
-                <Typography variant='body2' color='text.secondary' sx={{ mb: 2 }}>
+                <Typography
+                    variant='body2'
+                    sx={{
+                        color: 'text.secondary',
+                        mb: 2
+                    }}>
                     {props.intro} The workflow authenticates with a short-lived OIDC token at publish time, accepted
                     only when its repository, workflow and (if set) environment match a registration below.{' '}
                     <TrustedPublishingDocsLink />
@@ -132,7 +137,11 @@ export const TrustedPublishersSection: FunctionComponent<TrustedPublishersSectio
                             <CloseIcon fontSize='small' />
                         </CloseAddPanelButton>
                     )}
-                    <Typography variant='subtitle2' color='text.secondary'>
+                    <Typography
+                        variant='subtitle2'
+                        sx={{
+                            color: 'text.secondary'
+                        }}>
                         Add a trusted publisher
                     </Typography>
                     <Stack direction='row' spacing={2} useFlexGap sx={{ flexWrap: 'wrap', justifyContent: 'center' }}>
@@ -154,7 +163,12 @@ export const TrustedPublishersSection: FunctionComponent<TrustedPublishersSectio
                     Add a trusted publisher
                 </Button>
             ) : hasPublishers ? (
-                <Typography variant='body2' color='text.secondary' sx={{ mt: 2 }}>
+                <Typography
+                    variant='body2'
+                    sx={{
+                        color: 'text.secondary',
+                        mt: 2
+                    }}>
                     {allTakenText}
                 </Typography>
             ) : null}

@@ -54,7 +54,11 @@ export const AnalyticsStatusPage: FC = () => {
                     <Typography variant='h4' component='h1'>
                         Download Analytics
                     </Typography>
-                    <Typography variant='body2' color='text.secondary'>
+                    <Typography
+                        variant='body2'
+                        sx={{
+                            color: 'text.secondary'
+                        }}>
                         Whether the analytics database can be reached, and what is waiting for it. The page refreshes
                         itself.
                     </Typography>

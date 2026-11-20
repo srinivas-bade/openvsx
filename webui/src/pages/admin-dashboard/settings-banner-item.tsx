@@ -162,7 +162,11 @@ export const SettingsBannerItem: FC<SettingsBannerItemProps> = ({
                 <HeaderRow>
                     <Box>
                         <Typography variant='subtitle1'>Banner</Typography>
-                        <Typography variant='body2' color='text.secondary'>
+                        <Typography
+                            variant='body2'
+                            sx={{
+                                color: 'text.secondary'
+                            }}>
                             A notice above the navbar on every page except the admin dashboard - maintenance windows,
                             incidents, announcements.
                         </Typography>
@@ -188,15 +192,23 @@ export const SettingsBannerItem: FC<SettingsBannerItemProps> = ({
                     onChange={event => onChange({ bannerMessage: event.target.value })}
                     disabled={disabled}
                     helperText={`Markdown is supported, HTML is not. ${text.length}/${MAX_MESSAGE_LENGTH}`}
-                    inputProps={{ maxLength: MAX_MESSAGE_LENGTH }}
                     multiline
                     minRows={2}
                     fullWidth
+                    slotProps={{
+                        htmlInput: { maxLength: MAX_MESSAGE_LENGTH }
+                    }}
                 />
 
                 <ControlsRow>
                     <Box>
-                        <Typography variant='caption' component='p' color='text.secondary' id={severityLabelId}>
+                        <Typography
+                            variant='caption'
+                            component='p'
+                            id={severityLabelId}
+                            sx={{
+                                color: 'text.secondary'
+                            }}>
                             Severity
                         </Typography>
                         <ToggleButtonGroup

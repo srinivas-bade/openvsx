@@ -15,6 +15,7 @@ import { FunctionComponent } from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { MenuList } from '@mui/material';
 import { SxProps, Theme } from '@mui/material/styles';
 import { menuItemLabels } from '../support/menu-queries';
 import { renderWithProviders } from '../support/test-providers';
@@ -53,9 +54,15 @@ const ConsumerEntry: FunctionComponent<UserMenuContentProps> = ({ MenuEntry }) =
 );
 
 function renderAvatar(userMenuContent?: PageSettings['elements']['userMenuContent'], user: UserData = admin) {
-    return renderWithProviders(<MobileUserAvatar />, {
-        mainContext: { service, user, pageSettings: { elements: { userMenuContent } } as PageSettings }
-    });
+    // The avatar is an entry of the mobile header menu, and MenuItems need a menu around them.
+    return renderWithProviders(
+        <MenuList>
+            <MobileUserAvatar />
+        </MenuList>,
+        {
+            mainContext: { service, user, pageSettings: { elements: { userMenuContent } } as PageSettings }
+        }
+    );
 }
 
 /** The avatar itself is a menu entry; opening its menu adds the rest. */

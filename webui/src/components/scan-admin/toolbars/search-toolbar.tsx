@@ -92,13 +92,6 @@ export const SearchToolbar: FunctionComponent<SearchToolbarProps> = ({
                 value={publisherQuery}
                 onChange={onPublisherChange}
                 size='small'
-                InputProps={{
-                    startAdornment: (
-                        <InputAdornment position='start'>
-                            <PersonIcon sx={{ fontSize: 20 }} />
-                        </InputAdornment>
-                    )
-                }}
                 sx={{
                     flex: 1,
                     minWidth: 100,
@@ -108,6 +101,15 @@ export const SearchToolbar: FunctionComponent<SearchToolbarProps> = ({
                         '&.Mui-focused fieldset': {
                             borderColor: theme.palette.secondary.main
                         }
+                    }
+                }}
+                slotProps={{
+                    input: {
+                        startAdornment: (
+                            <InputAdornment position='start'>
+                                <PersonIcon sx={{ fontSize: 20 }} />
+                            </InputAdornment>
+                        )
                     }
                 }}
             />
@@ -116,13 +118,6 @@ export const SearchToolbar: FunctionComponent<SearchToolbarProps> = ({
                 value={namespaceQuery}
                 onChange={onNamespaceChange}
                 size='small'
-                InputProps={{
-                    startAdornment: (
-                        <InputAdornment position='start'>
-                            <AccountTreeIcon sx={{ fontSize: 20 }} />
-                        </InputAdornment>
-                    )
-                }}
                 sx={{
                     flex: 1,
                     minWidth: 100,
@@ -134,19 +129,21 @@ export const SearchToolbar: FunctionComponent<SearchToolbarProps> = ({
                         }
                     }
                 }}
+                slotProps={{
+                    input: {
+                        startAdornment: (
+                            <InputAdornment position='start'>
+                                <AccountTreeIcon sx={{ fontSize: 20 }} />
+                            </InputAdornment>
+                        )
+                    }
+                }}
             />
             <TextField
                 placeholder='Name or Display Name'
                 value={nameQuery}
                 onChange={onNameChange}
                 size='small'
-                InputProps={{
-                    startAdornment: (
-                        <InputAdornment position='start'>
-                            <ExtensionIcon sx={{ fontSize: 20 }} />
-                        </InputAdornment>
-                    )
-                }}
                 sx={{
                     flex: 1,
                     minWidth: 100,
@@ -156,6 +153,15 @@ export const SearchToolbar: FunctionComponent<SearchToolbarProps> = ({
                         '&.Mui-focused fieldset': {
                             borderColor: theme.palette.secondary.main
                         }
+                    }
+                }}
+                slotProps={{
+                    input: {
+                        startAdornment: (
+                            <InputAdornment position='start'>
+                                <ExtensionIcon sx={{ fontSize: 20 }} />
+                            </InputAdornment>
+                        )
                     }
                 }}
             />

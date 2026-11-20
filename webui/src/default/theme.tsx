@@ -108,7 +108,7 @@ interface CustomPaletteColors {
     bg2: string;
 }
 
-declare module '@mui/material/styles/createPalette' {
+declare module '@mui/material/styles' {
     // eslint-disable-next-line @typescript-eslint/no-empty-object-type
     interface Palette extends CustomPaletteColors {}
     interface PaletteOptions extends Partial<CustomPaletteColors> {
@@ -117,7 +117,7 @@ declare module '@mui/material/styles/createPalette' {
     }
 }
 
-declare module '@mui/system/createTheme/shape' {
+declare module '@mui/system' {
     interface Shape {
         borderRadiusCard: number;
         borderRadiusPill: number;
@@ -240,12 +240,20 @@ export default function createDefaultTheme(themeType: 'light' | 'dark'): Theme {
             },
             MuiAlert: {
                 styleOverrides: {
-                    standardInfo: ({ theme }) =>
-                        alertTone(theme, theme.palette.secondary.light, theme.palette.accentSoft),
-                    standardWarning: ({ theme }) =>
-                        alertTone(theme, theme.palette.warningAccent, theme.palette.warningSoft),
-                    standardError: ({ theme }) => alertTone(theme, theme.palette.error.main),
-                    standardSuccess: ({ theme }) => alertTone(theme, theme.palette.success.main)
+                    root: ({ theme }) => ({
+                        '&.MuiAlert-standard.MuiAlert-colorInfo': alertTone(
+                            theme,
+                            theme.palette.secondary.light,
+                            theme.palette.accentSoft
+                        ),
+                        '&.MuiAlert-standard.MuiAlert-colorWarning': alertTone(
+                            theme,
+                            theme.palette.warningAccent,
+                            theme.palette.warningSoft
+                        ),
+                        '&.MuiAlert-standard.MuiAlert-colorError': alertTone(theme, theme.palette.error.main),
+                        '&.MuiAlert-standard.MuiAlert-colorSuccess': alertTone(theme, theme.palette.success.main)
+                    })
                 }
             },
             // VS Code buttons are flat and compact (~24px page actions), with corners
@@ -263,34 +271,34 @@ export default function createDefaultTheme(themeType: 'light' | 'dark'): Theme {
                             backgroundColor: 'transparent',
                             borderColor: theme.palette.text.secondary,
                             color: theme.palette.text.primary
-                        }
-                    }),
-                    outlinedSecondary: ({ theme }) => ({
-                        color: theme.palette.secondary.main,
-                        borderColor: alpha(theme.palette.secondary.main, 0.5),
-                        '&:hover': {
-                            borderColor: theme.palette.secondary.main,
-                            color: theme.palette.secondary.main
-                        }
-                    }),
-                    outlinedWarning: ({ theme }) => ({
-                        color: theme.palette.warningAccent,
-                        borderColor: alpha(theme.palette.warningAccent, 0.5),
-                        '&:hover': {
-                            borderColor: theme.palette.warningAccent,
-                            color: theme.palette.warningAccent
-                        }
-                    }),
-                    outlinedError: ({ theme }) => ({
-                        backgroundColor: theme.palette.surface2,
-                        borderColor: theme.palette.divider,
-                        color: theme.palette.error.main,
-                        // Background only: transitioning color/border makes the disabled→enabled swap look like a fade.
-                        transition: 'background-color 0.15s',
-                        '&:hover': {
-                            backgroundColor: theme.palette.error.main,
-                            borderColor: theme.palette.error.main,
-                            color: theme.palette.common.white
+                        },
+                        '&.MuiButton-colorSecondary': {
+                            color: theme.palette.secondary.main,
+                            borderColor: alpha(theme.palette.secondary.main, 0.5),
+                            '&:hover': {
+                                borderColor: theme.palette.secondary.main,
+                                color: theme.palette.secondary.main
+                            }
+                        },
+                        '&.MuiButton-colorWarning': {
+                            color: theme.palette.warningAccent,
+                            borderColor: alpha(theme.palette.warningAccent, 0.5),
+                            '&:hover': {
+                                borderColor: theme.palette.warningAccent,
+                                color: theme.palette.warningAccent
+                            }
+                        },
+                        '&.MuiButton-colorError': {
+                            backgroundColor: theme.palette.surface2,
+                            borderColor: theme.palette.divider,
+                            color: theme.palette.error.main,
+                            // Background only: transitioning color/border makes the disabled→enabled swap look like a fade.
+                            transition: 'background-color 0.15s',
+                            '&:hover': {
+                                backgroundColor: theme.palette.error.main,
+                                borderColor: theme.palette.error.main,
+                                color: theme.palette.common.white
+                            }
                         }
                     })
                 }

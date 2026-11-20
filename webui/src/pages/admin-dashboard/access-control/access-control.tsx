@@ -187,10 +187,10 @@ export const AccessControl: FunctionComponent = () => {
     };
 
     const handleInputChange = (_event: SyntheticEvent, value: string, reason: AutocompleteInputChangeReason) => {
-        // 'reset' fires when the input syncs to the label of the option just picked. While a draft is
-        // dirty that pick is only pending confirmation, so adopting the label here would leave the box
-        // naming a user the card below is not showing. The confirmed switch sets inputValue itself.
-        if (reason === 'reset') {
+        // 'selectOption' (or 'reset') fires when the input syncs to the label of the option just picked.
+        // While a draft is dirty that pick is only pending confirmation, so adopting the label here would
+        // leave the box naming a user the card below is not showing. The confirmed switch sets inputValue itself.
+        if (reason === 'selectOption' || reason === 'reset') {
             if (!dirty) {
                 setInputValue(value);
             }
@@ -233,13 +233,22 @@ export const AccessControl: FunctionComponent = () => {
     const searchIconColor = pageSettings?.themeType === 'dark' ? '#111111' : '#ffffff';
 
     const renderInput = (params: AutocompleteRenderInputParams) => (
-        <Paper ref={params.InputProps.ref} elevation={3} sx={{ display: 'flex', width: '100%', alignItems: 'stretch' }}>
+        <Paper
+            ref={params.slotProps.input.ref}
+            elevation={3}
+            sx={{ display: 'flex', width: '100%', alignItems: 'stretch' }}>
             <InputBase
                 sx={{ flex: 1, pl: 1 }}
                 placeholder='Search by login or display name...'
-                inputProps={params.inputProps}
+                inputProps={params.slotProps.htmlInput}
                 endAdornment={
-                    <Stack direction='row' alignItems='center' spacing={0.5} sx={{ pr: 0.5 }}>
+                    <Stack
+                        direction='row'
+                        spacing={0.5}
+                        sx={{
+                            alignItems: 'center',
+                            pr: 0.5
+                        }}>
                         {inputValue && (
                             <IconButton size='small' onClick={handleClear} aria-label='Clear search'>
                                 <ClearIcon fontSize='small' />
@@ -288,7 +297,6 @@ export const AccessControl: FunctionComponent = () => {
                             loading={listLoading}
                             loadingText='Searching…'
                             noOptionsText='No users matched the current filters.'
-                            ListboxProps={{ onScroll: loadMoreOnScroll }}
                             renderInput={renderInput}
                             renderOption={(props, option) => {
                                 const { user } = option;
@@ -303,7 +311,12 @@ export const AccessControl: FunctionComponent = () => {
                                             <Typography variant='body2' noWrap>
                                                 {user.loginName}
                                             </Typography>
-                                            <Typography variant='caption' color='text.secondary' noWrap>
+                                            <Typography
+                                                variant='caption'
+                                                noWrap
+                                                sx={{
+                                                    color: 'text.secondary'
+                                                }}>
                                                 {user.fullName || '—'}
                                             </Typography>
                                             {user.permissions?.length ? (
@@ -333,6 +346,9 @@ export const AccessControl: FunctionComponent = () => {
                                         ) : null}
                                     </Box>
                                 );
+                            }}
+                            slotProps={{
+                                listbox: { onScroll: loadMoreOnScroll }
                             }}
                         />
                         <Paper elevation={3} sx={{ flex: 1, display: 'flex' }}>

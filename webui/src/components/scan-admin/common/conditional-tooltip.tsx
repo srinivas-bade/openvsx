@@ -49,22 +49,24 @@ export const ConditionalTooltip: FunctionComponent<ConditionalTooltipProps> = ({
             title={isTruncated ? title : ''}
             disableHoverListener={!isTruncated}
             disableInteractive
-            PopperProps={{
-                disablePortal: true,
-                modifiers: [
-                    {
-                        name: 'preventOverflow',
-                        enabled: true,
-                        options: {
-                            boundary: 'clippingParents'
+            {...tooltipProps}
+            slotProps={{
+                popper: {
+                    disablePortal: true,
+                    modifiers: [
+                        {
+                            name: 'preventOverflow',
+                            enabled: true,
+                            options: {
+                                boundary: 'clippingParents'
+                            }
                         }
+                    ],
+                    sx: {
+                        pointerEvents: 'none'
                     }
-                ],
-                sx: {
-                    pointerEvents: 'none'
                 }
-            }}
-            {...tooltipProps}>
+            }}>
             {cloneElement(children as ReactElement<{ ref?: Ref<HTMLElement> }>, {
                 ref: textRef
             })}

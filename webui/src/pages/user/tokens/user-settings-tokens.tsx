@@ -192,7 +192,10 @@ export const UserSettingsTokens: FunctionComponent = () => {
                     </>
                 }
             />
-            <Box mb='1.375rem'>
+            <Box
+                sx={{
+                    mb: '1.375rem'
+                }}>
                 <TrustedPublishingPromo />
             </Box>
             <DelayedLoadIndicator loading={loading} />

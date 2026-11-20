@@ -214,7 +214,7 @@ export const NamespaceLogo: FunctionComponent<NamespaceLogoProps> = props => {
                         <DialogTitle>Edit namespace logo</DialogTitle>
                         <DialogContent sx={{ overflowY: 'unset' }}>
                             <Grid container spacing={2}>
-                                <Grid item xs={12} sx={{ display: 'flex' }}>
+                                <Grid sx={{ display: 'flex' }} size={12}>
                                     <AvatarEditor
                                         style={{ margin: '0 auto' }}
                                         ref={editor}
@@ -229,12 +229,12 @@ export const NamespaceLogo: FunctionComponent<NamespaceLogoProps> = props => {
                                         onPositionChange={setEditorPosition}
                                     />
                                 </Grid>
-                                <Grid item xs={12}>
+                                <Grid size={12}>
                                     <Grid container spacing={2}>
-                                        <Grid item>
+                                        <Grid>
                                             <ZoomOutIcon />
                                         </Grid>
-                                        <Grid item xs>
+                                        <Grid size='grow'>
                                             <Slider
                                                 min={0}
                                                 max={2}
@@ -247,12 +247,12 @@ export const NamespaceLogo: FunctionComponent<NamespaceLogoProps> = props => {
                                                 onChange={handleEditorScaleChange}
                                             />
                                         </Grid>
-                                        <Grid item>
+                                        <Grid>
                                             <ZoomInIcon />
                                         </Grid>
                                     </Grid>
                                 </Grid>
-                                <Grid item xs={12} sx={{ display: 'flex' }}>
+                                <Grid sx={{ display: 'flex' }} size={12}>
                                     <Stack direction='row' spacing={2} sx={{ margin: '0 auto' }}>
                                         <IconButton
                                             onClick={() => setEditorRotation(editorRotation - 90)}

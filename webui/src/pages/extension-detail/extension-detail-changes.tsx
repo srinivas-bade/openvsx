@@ -43,7 +43,10 @@ export const ExtensionDetailChanges: FunctionComponent<ExtensionDetailChangesPro
                     <Typography variant='h5'>Changelog</Typography>
                 </Box>
                 <Divider />
-                <Box mt={3}>
+                <Box
+                    sx={{
+                        mt: 3
+                    }}>
                     <Typography>No changelog available</Typography>
                 </Box>
             </>
@@ -61,7 +64,11 @@ export const ExtensionDetailChanges: FunctionComponent<ExtensionDetailChangesPro
                     xl: 'row'
                 }
             }}>
-            <Box flex={5} overflow='auto'>
+            <Box
+                sx={{
+                    flex: 5,
+                    overflow: 'auto'
+                }}>
                 <SanitizedMarkdown content={changelog} />
             </Box>
         </Box>

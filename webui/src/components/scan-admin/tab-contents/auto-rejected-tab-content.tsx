@@ -73,10 +73,19 @@ export const AutoRejectedTabContent: FunctionComponent = () => {
                 </Box>
             ) : !hasValidationTypes || scans.length === 0 ? (
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 4 }}>
-                    <Typography variant='h6' color='text.secondary'>
+                    <Typography
+                        variant='h6'
+                        sx={{
+                            color: 'text.secondary'
+                        }}>
                         No auto rejected extensions
                     </Typography>
-                    <Typography variant='body2' color='text.secondary' sx={{ mt: 1 }}>
+                    <Typography
+                        variant='body2'
+                        sx={{
+                            color: 'text.secondary',
+                            mt: 1
+                        }}>
                         Extensions that fail validation will appear here
                     </Typography>
                 </Box>
