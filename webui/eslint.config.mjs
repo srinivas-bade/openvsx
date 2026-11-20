@@ -20,7 +20,7 @@ const compat = new FlatCompat({
 
 export default [
     { ignores: ['node_modules/**', 'lib/**', 'dist/**', 'playwright-report/**', 'test-results/**', '.yarn/**'] },
-    { settings: { react: { version: 'detect' } } },
+    { settings: { react: { version: '19.3' } } },
     ...compat.extends(
         'eslint:recommended',
         'plugin:@typescript-eslint/eslint-recommended',
