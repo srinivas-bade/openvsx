@@ -9,12 +9,12 @@
         "sourceMap": true,
         "declaration": true,
         "declarationMap": true,
+        "strict": false,
         "noImplicitAny": true,
         "noImplicitThis": true,
         "noImplicitReturns": true,
         "noUnusedLocals": true,
         "strictNullChecks": true,
-        "jsx": "react-jsx",
-        "baseUrl": "./src"
+        "jsx": "react-jsx"
     }
 }

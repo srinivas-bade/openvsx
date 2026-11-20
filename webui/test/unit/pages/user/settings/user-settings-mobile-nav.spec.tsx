@@ -19,6 +19,8 @@ import { settingsServiceStub } from '../../../support/user-settings';
 import { UserSettingsMobileNav } from '../../../../../src/pages/user/settings/user-settings-mobile-nav';
 
 describe('UserSettingsMobileNav', () => {
+    // The nav is hidden from md up, and jsdom applies media queries at its 1024px viewport,
+    // so its tabs are only reachable as hidden elements.
     it('renders nothing without a logged-in user', () => {
         const { service } = settingsServiceStub();
         const { container } = renderWithProviders(<UserSettingsMobileNav />, { mainContext: { service } });
@@ -30,7 +32,7 @@ describe('UserSettingsMobileNav', () => {
         const { service } = settingsServiceStub({ status: disabledStatus });
         renderWithProviders(<UserSettingsMobileNav />, { mainContext: { service, user: testUser } });
 
-        expect(await screen.findByRole('tab', { name: 'Namespaces' })).toHaveAttribute(
+        expect(await screen.findByRole('tab', { name: 'Namespaces', hidden: true })).toHaveAttribute(
             'href',
             '/user-settings/namespaces'
         );
@@ -51,10 +53,13 @@ describe('UserSettingsMobileNav', () => {
         });
         renderWithProviders(<UserSettingsMobileNav />, { mainContext: { service, user: testUser } });
 
-        expect(await screen.findByRole('tab', { name: 'Trusted Publishers' })).toHaveAttribute(
+        expect(await screen.findByRole('tab', { name: 'Trusted Publishers', hidden: true })).toHaveAttribute(
             'href',
             '/user-settings/trusted-publishers'
         );
-        expect(screen.getByRole('tab', { name: 'Profile' })).toHaveAttribute('href', '/user-settings/profile');
+        expect(screen.getByRole('tab', { name: 'Profile', hidden: true })).toHaveAttribute(
+            'href',
+            '/user-settings/profile'
+        );
     });
 });

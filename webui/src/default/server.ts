@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: EPL-2.0
  ********************************************************************************/
 
-import * as express from 'express';
+import express from 'express';
 import * as path from 'path';
 import { rateLimit } from 'express-rate-limit';
 

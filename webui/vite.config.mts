@@ -41,7 +41,7 @@ export default defineConfig(() => ({
     // and its minifier isn't needed once postcss is handling transforms - see
     // https://github.com/eclipse-openvsx/openvsx/issues/2051
     css: {
-        transformer: 'postcss'
+        transformer: 'postcss' as const
     },
     build: {
         target: 'es2020',

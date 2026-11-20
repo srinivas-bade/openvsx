@@ -2,9 +2,10 @@
     "extends": "./base.tsconfig.json",
     "compilerOptions": {
         "module": "commonjs",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "lib": ["es6"],
         "skipLibCheck": true,
+        "rootDir": "../src/default",
         "outDir": "../lib/default"
     },
     "include": ["../src/default/server.ts"]
