@@ -13,7 +13,7 @@ import { LinearProgress } from '@mui/material';
 
 export const DelayedLoadIndicator: FunctionComponent<DelayedLoadIndicatorProps> = props => {
     const [waiting, setWaiting] = useState<boolean>(false);
-    const timeout = useRef<number>();
+    const timeout = useRef<number>(undefined);
 
     useEffect(() => {
         setDelay();

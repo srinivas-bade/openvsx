@@ -319,7 +319,7 @@ const grayscaleOf = (color: string): string => {
 // Declares the header band as the nav's tint region: its gallery color (null
 // for default bands) and how deep it runs. The nav does the switching; the
 // resize observer keeps the depth fresh as the band's content reflows.
-const useNavTintFromBand = (color: string | null, bandRef: RefObject<HTMLDivElement>): void => {
+const useNavTintFromBand = (color: string | null, bandRef: RefObject<HTMLDivElement | null>): void => {
     const setTint = useSetExtensionTint();
     useEffect(() => {
         const band = bandRef.current;
@@ -338,7 +338,7 @@ const useNavTintFromBand = (color: string | null, bandRef: RefObject<HTMLDivElem
 
 const ExtensionHeader: FunctionComponent<{
     extension: Extension;
-    bandRef: RefObject<HTMLDivElement>;
+    bandRef: RefObject<HTMLDivElement | null>;
 }> = ({ extension, bandRef }) => {
     const theme = useTheme();
     const { pageSettings } = useContext(MainContext);

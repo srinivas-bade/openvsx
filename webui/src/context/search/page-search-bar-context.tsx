@@ -68,7 +68,7 @@ const focusAtEnd = (node: HTMLElement) => {
  * registered is read with `usePageSearchBar`.
  */
 // eslint-disable-next-line react-refresh/only-export-components
-export function useSearchBar(ref: RefObject<HTMLElement>): boolean {
+export function useSearchBar(ref: RefObject<HTMLElement | null>): boolean {
     const { registerPageSearchBar } = usePageSearchBar();
     const { searchFocusSignal } = useSearchFocus();
     // Follows the bar out of view, and assumes it in view until measured so the nav field doesn't flash on load.
@@ -135,7 +135,7 @@ export function useSearchBar(ref: RefObject<HTMLElement>): boolean {
  * registered, if the element behind `ref` had it (e.g. the nav field, about to go `inert`).
  */
 // eslint-disable-next-line react-refresh/only-export-components
-export function useYieldSearchFocus(ref: RefObject<HTMLElement>): void {
+export function useYieldSearchFocus(ref: RefObject<HTMLElement | null>): void {
     const { hasPageSearchBar } = usePageSearchBar();
     const { searchFocusSignal } = useSearchFocus();
     useLayoutEffect(() => {

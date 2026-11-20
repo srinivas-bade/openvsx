@@ -27,7 +27,7 @@ const DEFAULT_ROOT_MARGIN = '300px';
  * nothing to defer, and no element is observed at all. Watching goes through `ViewportObserverContext`.
  */
 export function useInView(
-    ref: RefObject<Element>,
+    ref: RefObject<Element | null>,
     { enabled = true, rootMargin = DEFAULT_ROOT_MARGIN, once = true, initialInView = false }: UseInViewOptions = {}
 ): boolean {
     const { observe } = useViewportObserver();
