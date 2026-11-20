@@ -85,7 +85,7 @@ To run the Open VSX registry in a development environment, you can use `docker c
     - CREATE ROLE gitpod with LOGIN PASSWORD 'gitpod';
   - [https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-database](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-database)
 
-- Install node.js using nvm
+- Install node.js 26 (the current LTS) using nvm, e.g. `nvm install 26`, and check it with `node --version`
 
   - [https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl)
 

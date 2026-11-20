@@ -39,7 +39,7 @@
     "types": "lib/index",
     "bin": "bin/ovsx",
     "engines": {
-        "node": ">=22.0.0"
+        "node": ">=26.0.0"
     },
     "dependencies": {
         "@inquirer/prompts": "^7.10.1",
