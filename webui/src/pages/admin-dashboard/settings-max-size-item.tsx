@@ -43,7 +43,12 @@ export const SettingsMaxSizeItem: FC<SettingsMaxSizeItemProps> = ({ value, ceili
         <Typography variant='subtitle1' gutterBottom>
             Default max extension size
         </Typography>
-        <Typography variant='body2' color='text.secondary' sx={{ mb: 2 }}>
+        <Typography
+            variant='body2'
+            sx={{
+                color: 'text.secondary',
+                mb: 2
+            }}>
             The largest extension package accepted for publishing when no namespace or extension override applies.
         </Typography>
         <TextField
@@ -58,8 +63,10 @@ export const SettingsMaxSizeItem: FC<SettingsMaxSizeItemProps> = ({ value, ceili
                     ? undefined
                     : `Must be a whole number of bytes, greater than 0 and at most ${formatCeiling(ceiling)}`
             }
-            inputProps={{ min: '1' }}
             sx={{ maxWidth: 240 }}
+            slotProps={{
+                htmlInput: { min: '1' }
+            }}
         />
     </Box>
 );

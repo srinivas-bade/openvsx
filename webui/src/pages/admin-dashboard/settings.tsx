@@ -215,7 +215,11 @@ export const RuntimeSettingsPage: FC = () => {
                     <Typography variant='h4' component='h1' gutterBottom>
                         Settings
                     </Typography>
-                    <Typography variant='body1' color='text.secondary'>
+                    <Typography
+                        variant='body1'
+                        sx={{
+                            color: 'text.secondary'
+                        }}>
                         Manage runtime settings that apply across the registry.
                     </Typography>
                 </Box>

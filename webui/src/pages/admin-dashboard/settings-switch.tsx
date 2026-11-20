@@ -32,7 +32,9 @@ export const SettingsSwitch: FC<SettingsSwitchProps> = ({ name, checked, disable
                     checked={checked}
                     onChange={onChange}
                     disabled={disabled}
-                    inputProps={{ 'aria-label': `Toggle ${name}` }}
+                    slotProps={{
+                        input: { 'aria-label': `Toggle ${name}` }
+                    }}
                 />
             }
             label={checked ? 'Enabled' : 'Disabled'}

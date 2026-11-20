@@ -233,11 +233,11 @@ export const ExtensionCard = memo(
                                 ]}>
                                 {overlay ? <span className='extension-card-overlay'>{overlay}</span> : null}
                                 <Box
-                                    display='flex'
-                                    justifyContent='center'
-                                    alignItems='center'
-                                    flexShrink={0}
                                     sx={{
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        flexShrink: 0,
                                         width: 54,
                                         height: 54,
                                         mb: '0.75rem'

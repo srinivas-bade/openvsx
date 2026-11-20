@@ -7,6 +7,7 @@ Command line interface for [Eclipse Open VSX](https://open-vsx.org/). Run it via
 ```
 npm install --global ovsx
 ```
+`ovsx` requires Node.js 26 or later (check with `node --version`).
 
 `ovsx` uses open-vsx.org as default instance for publishing and downloading extensions. If you are using a different instance, specify it via the `--registryUrl` (or `-r`) argument or an environment variable named `OVSX_REGISTRY_URL`.
 

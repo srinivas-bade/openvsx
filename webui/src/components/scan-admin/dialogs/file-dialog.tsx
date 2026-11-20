@@ -82,8 +82,8 @@ export const FileDialog: FunctionComponent = () => {
                                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.25 }}>
                                         <Typography
                                             variant='body2'
-                                            color='text.secondary'
                                             sx={{
+                                                color: 'text.secondary',
                                                 overflow: 'hidden',
                                                 textOverflow: 'ellipsis',
                                                 whiteSpace: 'nowrap'
@@ -92,8 +92,8 @@ export const FileDialog: FunctionComponent = () => {
                                         </Typography>
                                         <Typography
                                             variant='body2'
-                                            color='text.secondary'
                                             sx={{
+                                                color: 'text.secondary',
                                                 overflow: 'hidden',
                                                 textOverflow: 'ellipsis',
                                                 whiteSpace: 'nowrap'
@@ -102,8 +102,8 @@ export const FileDialog: FunctionComponent = () => {
                                         </Typography>
                                         <Typography
                                             variant='body2'
-                                            color='text.secondary'
                                             sx={{
+                                                color: 'text.secondary',
                                                 overflow: 'hidden',
                                                 textOverflow: 'ellipsis',
                                                 whiteSpace: 'nowrap'
@@ -112,8 +112,8 @@ export const FileDialog: FunctionComponent = () => {
                                         </Typography>
                                         <Typography
                                             variant='body2'
-                                            color='text.secondary'
                                             sx={{
+                                                color: 'text.secondary',
                                                 overflow: 'hidden',
                                                 textOverflow: 'ellipsis',
                                                 whiteSpace: 'nowrap'

@@ -125,9 +125,11 @@ export const ScanDetailCard: FunctionComponent<ScanDetailCardProps> = ({
                             <Typography
                                 key={index}
                                 variant='caption'
-                                color='text.secondary'
-                                display='block'
-                                sx={{ mb: 0.5 }}>
+                                sx={{
+                                    color: 'text.secondary',
+                                    display: 'block',
+                                    mb: 0.5
+                                }}>
                                 {detail.label}: {detail.value}
                             </Typography>
                         )

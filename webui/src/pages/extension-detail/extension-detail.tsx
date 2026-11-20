@@ -107,7 +107,10 @@ const UnverifiedBanner: FunctionComponent<{
                 '& a': { color: headerTextColor, textDecoration: 'underline' }
             }}>
             <WarningIcon fontSize='large' />
-            <Box ml={1}>
+            <Box
+                sx={{
+                    ml: 1
+                }}>
                 This version of the &ldquo;{extension.displayName ?? extension.name}&rdquo; extension was published by{' '}
                 <Link href={extension.publishedBy.homepage}>{extension.publishedBy.loginName}</Link>. That user account
                 is not a verified publisher of the namespace &ldquo;{extension.namespace}&rdquo; of this extension.{' '}
@@ -140,7 +143,11 @@ const UserPopover: FunctionComponent<{
     color: string;
 }> = ({ user, color }) => {
     const popupContent = (
-        <Box display='flex' flexDirection='row'>
+        <Box
+            sx={{
+                display: 'flex',
+                flexDirection: 'row'
+            }}>
             {user.avatarUrl && (
                 <Avatar
                     src={user.avatarUrl}
@@ -149,7 +156,10 @@ const UserPopover: FunctionComponent<{
                     sx={{ width: '60px', height: '60px' }}
                 />
             )}
-            <Box ml={2}>
+            <Box
+                sx={{
+                    ml: 2
+                }}>
                 {user.fullName && <Typography variant='h6'>{user.fullName}</Typography>}
                 <Typography variant='body1'>{user.loginName}</Typography>
             </Box>
@@ -213,7 +223,11 @@ export const ExtensionHeaderInfo: FunctionComponent<{
             </PreviewBadge>
 
             {extension.deprecated && (
-                <Stack direction='row' alignItems='center'>
+                <Stack
+                    direction='row'
+                    sx={{
+                        alignItems: 'center'
+                    }}>
                     <WarningIcon fontSize='small' />
                     <Typography>
                         This extension has been deprecated.
@@ -263,7 +277,12 @@ export const ExtensionHeaderInfo: FunctionComponent<{
                 </Box>
             </Box>
 
-            <Box mt={2} mb={2} overflow='auto'>
+            <Box
+                sx={{
+                    mt: 2,
+                    mb: 2,
+                    overflow: 'auto'
+                }}>
                 <Typography sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>{extension.description}</Typography>
             </Box>
 
@@ -319,7 +338,7 @@ const grayscaleOf = (color: string): string => {
 // Declares the header band as the nav's tint region: its gallery color (null
 // for default bands) and how deep it runs. The nav does the switching; the
 // resize observer keeps the depth fresh as the band's content reflows.
-const useNavTintFromBand = (color: string | null, bandRef: RefObject<HTMLDivElement>): void => {
+const useNavTintFromBand = (color: string | null, bandRef: RefObject<HTMLDivElement | null>): void => {
     const setTint = useSetExtensionTint();
     useEffect(() => {
         const band = bandRef.current;
@@ -338,7 +357,7 @@ const useNavTintFromBand = (color: string | null, bandRef: RefObject<HTMLDivElem
 
 const ExtensionHeader: FunctionComponent<{
     extension: Extension;
-    bandRef: RefObject<HTMLDivElement>;
+    bandRef: RefObject<HTMLDivElement | null>;
 }> = ({ extension, bandRef }) => {
     const theme = useTheme();
     const { pageSettings } = useContext(MainContext);
@@ -561,7 +580,10 @@ export const ExtensionDetail: FunctionComponent = () => {
                 </>
             )}
             {extensionError && (
-                <Box p={4}>
+                <Box
+                    sx={{
+                        p: 4
+                    }}>
                     <Typography variant='h5'>{loadErrorMessage(extensionError, namespace, name)}</Typography>
                 </Box>
             )}

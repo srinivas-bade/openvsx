@@ -219,7 +219,7 @@ export const AppNavbar: FunctionComponent = () => {
                     '& svg path': { transition: 'fill 0.35s ease, fill-opacity 0.35s ease' },
                     // The Publish button inherits too — brand purple can't be
                     // trusted against an arbitrary band.
-                    ...(navTint && { '& .MuiButton-textSecondary': { color: 'inherit' } })
+                    ...(navTint && { '& .MuiButton-text.MuiButton-colorSecondary': { color: 'inherit' } })
                 }}>
                 <ToolbarItem>
                     {/* Mobile compact icon — shown while the nav search field is visible. The right

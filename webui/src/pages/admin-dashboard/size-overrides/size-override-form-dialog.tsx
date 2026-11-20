@@ -27,8 +27,8 @@ import {
     TextField
 } from '@mui/material';
 import { useQueryClient } from '@tanstack/react-query';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutlineOutlined';
 import { MainContext } from '../../../context';
 import type { SizeOverride } from '../../../extension-registry-types';
 import { handleError } from '../../../utils';
@@ -238,8 +238,10 @@ export const SizeOverrideFormDialog: FC<SizeOverrideFormDialogProps> = ({
                             setNamespace(event.target.value);
                             setExtension(null);
                         }}
-                        InputProps={{
-                            endAdornment: <InputAdornment position='end'>{namespaceStatusIcon()}</InputAdornment>
+                        slotProps={{
+                            input: {
+                                endAdornment: <InputAdornment position='end'>{namespaceStatusIcon()}</InputAdornment>
+                            }
                         }}
                     />
                     <Autocomplete
@@ -269,8 +271,10 @@ export const SizeOverrideFormDialog: FC<SizeOverrideFormDialogProps> = ({
                                       }`
                                     : ' '
                             }
-                            inputProps={{ min: '1' }}
                             onChange={event => setSizeValue(event.target.value)}
+                            slotProps={{
+                                htmlInput: { min: '1' }
+                            }}
                         />
                         <TextField
                             select

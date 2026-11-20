@@ -97,7 +97,11 @@ export const ScanCardHeader: FC<ScanCardHeaderProps> = ({ scan }) => {
                         }}
                     />
                 ) : (
-                    <Typography variant='h4' color='text.secondary'>
+                    <Typography
+                        variant='h4'
+                        sx={{
+                            color: 'text.secondary'
+                        }}>
                         {scan.displayName.charAt(0).toUpperCase()}
                     </Typography>
                 )}
@@ -120,8 +124,8 @@ export const ScanCardHeader: FC<ScanCardHeaderProps> = ({ scan }) => {
                 <ConditionalTooltip title={`${scan.namespace}.${scan.extensionName}`} arrow>
                     <Typography
                         variant='body2'
-                        color='text.secondary'
                         sx={{
+                            color: 'text.secondary',
                             overflow: 'hidden',
                             textOverflow: 'ellipsis',
                             whiteSpace: 'nowrap'

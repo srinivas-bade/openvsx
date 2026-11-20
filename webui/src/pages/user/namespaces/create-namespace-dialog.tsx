@@ -81,7 +81,10 @@ export const CreateNamespaceDialog: FunctionComponent<CreateNamespaceDialogProps
         <Dialog open={props.open} onClose={props.onClose}>
             <DialogTitle>Create new namespace</DialogTitle>
             <DialogContent>
-                <Box my={2}>
+                <Box
+                    sx={{
+                        my: 2
+                    }}>
                     <TextField
                         fullWidth
                         label='Namespace Name'

@@ -62,7 +62,10 @@ export const NamespaceDetail: FunctionComponent = () => {
         return (
             <>
                 {notFound ? (
-                    <Box p={4}>
+                    <Box
+                        sx={{
+                            p: 4
+                        }}>
                         <Typography variant='h5'>{`Namespace Not Found: ${name}`}</Typography>
                     </Box>
                 ) : null}
@@ -102,9 +105,11 @@ export const NamespaceDetail: FunctionComponent = () => {
                                 {namespaceDetails.description ? (
                                     <Box sx={{ mt: '0.5rem' }}>
                                         <Typography
-                                            color='text.secondary'
                                             ref={calculateShowReadMore}
-                                            sx={
+                                            sx={[
+                                                {
+                                                    color: 'text.secondary'
+                                                },
                                                 truncateReadMore
                                                     ? {
                                                           overflow: 'hidden',
@@ -114,7 +119,7 @@ export const NamespaceDetail: FunctionComponent = () => {
                                                           WebkitBoxOrient: 'vertical'
                                                       }
                                                     : {}
-                                            }>
+                                            ]}>
                                             {namespaceDetails.description}
                                         </Typography>
                                         {showReadMore ? (
@@ -157,17 +162,32 @@ export const NamespaceDetail: FunctionComponent = () => {
                                 {socialLinks.linkedin || socialLinks.github || socialLinks.twitter ? (
                                     <Box sx={{ display: 'flex', alignItems: 'center', gap: '1rem', mt: '1rem' }}>
                                         {socialLinks.linkedin ? (
-                                            <Link target='_blank' color='text.primary' href={socialLinks.linkedin}>
+                                            <Link
+                                                target='_blank'
+                                                href={socialLinks.linkedin}
+                                                sx={{
+                                                    color: 'text.primary'
+                                                }}>
                                                 <LinkedInIcon />
                                             </Link>
                                         ) : null}
                                         {socialLinks.github ? (
-                                            <Link target='_blank' color='text.primary' href={socialLinks.github}>
+                                            <Link
+                                                target='_blank'
+                                                href={socialLinks.github}
+                                                sx={{
+                                                    color: 'text.primary'
+                                                }}>
                                                 <GitHubIcon />
                                             </Link>
                                         ) : null}
                                         {socialLinks.twitter ? (
-                                            <Link target='_blank' color='text.primary' href={socialLinks.twitter}>
+                                            <Link
+                                                target='_blank'
+                                                href={socialLinks.twitter}
+                                                sx={{
+                                                    color: 'text.primary'
+                                                }}>
                                                 <TwitterIcon />
                                             </Link>
                                         ) : null}

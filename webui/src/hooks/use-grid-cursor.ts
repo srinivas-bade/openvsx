@@ -46,7 +46,7 @@ export interface GridCursorOptions {
 }
 
 export interface GridContainerProps {
-    ref: RefObject<HTMLElement>;
+    ref: RefObject<HTMLElement | null>;
     onKeyDown: (event: KeyboardEvent<HTMLElement>) => void;
     onFocus: (event: FocusEvent<HTMLElement>) => void;
     'data-cursor-visible'?: string;

@@ -164,7 +164,11 @@ export const QuarantineDialog: FunctionComponent = () => {
                             border: `1px solid ${theme.palette.info.dark}40`
                         }}>
                         <InfoIcon sx={{ fontSize: 18, color: theme.palette.info.main, mt: 0.25 }} />
-                        <Typography variant='body2' color='text.secondary'>
+                        <Typography
+                            variant='body2'
+                            sx={{
+                                color: 'text.secondary'
+                            }}>
                             Some extensions have unenforced threats. These are informational only and will not be added
                             to the {confirmDialog.action === 'allow' ? 'allow' : 'block'} list.
                         </Typography>
@@ -185,7 +189,11 @@ export const QuarantineDialog: FunctionComponent = () => {
                             border: `1px solid ${theme.palette.info.dark}40`
                         }}>
                         <InfoIcon sx={{ fontSize: 18, color: theme.palette.info.main, mt: 0.25 }} />
-                        <Typography variant='body2' color='text.secondary'>
+                        <Typography
+                            variant='body2'
+                            sx={{
+                                color: 'text.secondary'
+                            }}>
                             Some threats do not have file-level information (e.g., from scanners that analyze the whole
                             package). These cannot be added to allow/block lists.
                         </Typography>
@@ -232,8 +240,8 @@ export const QuarantineDialog: FunctionComponent = () => {
                                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.25 }}>
                                             <Typography
                                                 variant='body2'
-                                                color='text.secondary'
                                                 sx={{
+                                                    color: 'text.secondary',
                                                     overflow: 'hidden',
                                                     textOverflow: 'ellipsis',
                                                     whiteSpace: 'nowrap'
@@ -242,8 +250,8 @@ export const QuarantineDialog: FunctionComponent = () => {
                                             </Typography>
                                             <Typography
                                                 variant='body2'
-                                                color='text.secondary'
                                                 sx={{
+                                                    color: 'text.secondary',
                                                     overflow: 'hidden',
                                                     textOverflow: 'ellipsis',
                                                     whiteSpace: 'nowrap'
@@ -252,8 +260,8 @@ export const QuarantineDialog: FunctionComponent = () => {
                                             </Typography>
                                             <Typography
                                                 variant='body2'
-                                                color='text.secondary'
                                                 sx={{
+                                                    color: 'text.secondary',
                                                     overflow: 'hidden',
                                                     textOverflow: 'ellipsis',
                                                     whiteSpace: 'nowrap'
@@ -289,7 +297,11 @@ export const QuarantineDialog: FunctionComponent = () => {
                                             cursor: 'pointer',
                                             textAlign: 'right'
                                         }}>
-                                        <Typography variant='body2' color='text.secondary'>
+                                        <Typography
+                                            variant='body2'
+                                            sx={{
+                                                color: 'text.secondary'
+                                            }}>
                                             {actionableThreats.length} file{actionableThreats.length !== 1 ? 's' : ''}
                                         </Typography>
                                         {enforcedThreats.length - actionableThreats.length > 0 && (

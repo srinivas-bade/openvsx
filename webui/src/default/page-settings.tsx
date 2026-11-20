@@ -102,7 +102,13 @@ export default function createPageSettings(prefersDarkMode: boolean, serverUrl: 
     };
 
     const searchHeader: FunctionComponent = () => (
-        <Box textAlign='center' sx={{ mb: 2, maxWidth: '43.75rem', mx: 'auto' }}>
+        <Box
+            sx={{
+                textAlign: 'center',
+                mb: 2,
+                maxWidth: '43.75rem',
+                mx: 'auto'
+            }}>
             <Box
                 sx={{
                     display: 'inline-flex',

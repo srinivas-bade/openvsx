@@ -97,9 +97,11 @@ export const SessionExpiredDialog: FunctionComponent<SessionExpiredDialogProps> 
                 <Link
                     component='button'
                     variant='body2'
-                    color='text.secondary'
                     underline='hover'
-                    onClick={props.onClose}>
+                    onClick={props.onClose}
+                    sx={{
+                        color: 'text.secondary'
+                    }}>
                     Not now
                 </Link>
             </Actions>

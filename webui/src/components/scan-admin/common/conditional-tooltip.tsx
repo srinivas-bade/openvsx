@@ -11,7 +11,7 @@
  * SPDX-License-Identifier: EPL-2.0
  ********************************************************************************/
 
-import type { ReactElement } from 'react';
+import type { ReactElement, Ref } from 'react';
 import { FunctionComponent, useRef, useState, useEffect, cloneElement } from 'react';
 import { Tooltip, TooltipProps } from '@mui/material';
 interface ConditionalTooltipProps extends Omit<TooltipProps, 'title'> {
@@ -49,23 +49,25 @@ export const ConditionalTooltip: FunctionComponent<ConditionalTooltipProps> = ({
             title={isTruncated ? title : ''}
             disableHoverListener={!isTruncated}
             disableInteractive
-            PopperProps={{
-                disablePortal: true,
-                modifiers: [
-                    {
-                        name: 'preventOverflow',
-                        enabled: true,
-                        options: {
-                            boundary: 'clippingParents'
+            {...tooltipProps}
+            slotProps={{
+                popper: {
+                    disablePortal: true,
+                    modifiers: [
+                        {
+                            name: 'preventOverflow',
+                            enabled: true,
+                            options: {
+                                boundary: 'clippingParents'
+                            }
                         }
+                    ],
+                    sx: {
+                        pointerEvents: 'none'
                     }
-                ],
-                sx: {
-                    pointerEvents: 'none'
                 }
-            }}
-            {...tooltipProps}>
-            {cloneElement(children as ReactElement, {
+            }}>
+            {cloneElement(children as ReactElement<{ ref?: Ref<HTMLElement> }>, {
                 ref: textRef
             })}
         </Tooltip>

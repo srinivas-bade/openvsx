@@ -14,7 +14,7 @@
 import { FunctionComponent, useEffect, useRef } from 'react';
 import { Box, Button, keyframes, Typography } from '@mui/material';
 import { alpha, styled } from '@mui/material/styles';
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutlineOutlined';
 import { isFinished, PublishItem, PublishStatus, usePublishQueue } from '../../context/publish-queue-context';
 import { ExtensionCard } from '../extension-card';
 import { getExtensionStatus } from '../extension/extension-status';
